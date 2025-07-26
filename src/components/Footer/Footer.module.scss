@@ -1,0 +1,108 @@
+.footer {
+  background-color: #33001b;
+  color: var(--white);
+  display: grid;
+
+  &::after {
+    content: '';
+    height: 247px;
+    width: 100%;
+    background: var(--white)
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 247' preserveAspectRatio='none'><path fill='%2333001B' d='M0 0h1440v24H0zm0 26h1440v22H0zm0 25h1440v20H0zm0 24h1440v18H0zm0 23h1440v16H0zm0 22h1440v14H0zm0 21h1440v12H0zm0 20h1440v10H0zm0 19h1440v8H0zm0 18h1440v6H0zm0 17h1440v4H0zm0 16h1440v2H0zm0 15h1440v1H0z'/></svg>")
+      no-repeat center top / 100% 247px;
+    border-top: solid 1px var(--white);
+  }
+
+  &_inner {
+    padding-block: 48px;
+  }
+
+  &_top {
+    display: flex;
+    gap: 32px;
+
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    @media (min-width: 1200px) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+  }
+
+  &_info {
+    max-width: 244px;
+    display: grid;
+    row-gap: 24px;
+    justify-content: start;
+    font-size: 14px;
+  }
+
+  &_menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px 80px;
+    flex-direction: column;
+
+    @media (min-width: 740px) {
+      flex-direction: row;
+    }
+
+    &_section {
+      display: grid;
+      row-gap: 24px;
+      align-content: start;
+      flex-grow: 1;
+    }
+
+    &_title {
+      opacity: 0.5;
+    }
+  }
+
+  &_descr {
+    opacity: 0.7;
+  }
+
+  &_bottom {
+    border-top: solid 1px var(--white-16);
+    padding-block: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  &_social {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    &_item {
+      display: grid;
+      place-content: center;
+      line-height: 1;
+      font-weight: bold;
+    }
+
+    &_link {
+      &:is(:hover, :focus-visible) {
+        opacity: 0.5;
+      }
+    }
+
+    &_icon {
+      object-fit: contain;
+    }
+  }
+
+  &_copy {
+    font-size: 12px;
+  }
+}

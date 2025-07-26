@@ -1,0 +1,49 @@
+.field {
+  $this: &;
+
+  display: grid;
+  row-gap: 12px;
+  position: relative;
+
+  &_input {
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid var(--light);
+    background: var(--white);
+    padding: 16px;
+    transition: border-color 250ms ease-in-out;
+    min-height: 56px;
+    display: grid;
+    align-items: center;
+
+    &:is(:hover, &:focus-visible) {
+      border-color: var(--gray);
+    }
+
+    &[aria-invalid='true'],
+    &.invalid {
+      border-color: red;
+
+      ~ #{$this}_error {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    &:is(textarea) {
+      height: 56px;
+      resize: none;
+    }
+  }
+
+  &_error {
+    color: red;
+    font-size: 13px;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 150ms ease-in-out, visibility 150ms ease-in-out;
+  }
+}

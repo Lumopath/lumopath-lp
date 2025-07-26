@@ -1,95 +1,186 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import CTA from '@/components/CTA';
+import FAQ from '@/components/FAQ';
+import Hero from '@/components/Hero';
+import HowWorks from '@/components/HowWorks';
+import Intro from '@/components/Intro';
+import Platform from '@/components/Platform';
+import Testimonials from '@/components/Testimonials';
+import Why from '@/components/Why';
+import Solutions from '@/components/Solutions';
+import { performRequest } from '@/lib/datocms';
 
-export default function Home() {
+const PAGE_CONTENT_QUERY = `
+  query Home {
+    homepage {
+      hero {
+        heading
+        description
+        buttonPrimary {
+          label
+          link
+        }
+        buttonSecondary {
+          label
+          link
+        }
+      }
+      preview {
+        width
+        url
+        height
+        alt
+        basename
+      }
+      customers {
+        title
+        logos {
+          width
+          url
+          alt
+          basename
+          height
+        }
+      }
+      problems {
+        label
+        heading
+        description
+        list {
+          title
+          icon
+          description
+        }
+      }
+      platform {
+        label
+        heading
+        description
+        list {
+          title
+          description
+          picture {
+            basename
+            height
+            alt
+            url
+            width
+          }
+        }
+      }
+      howworks {
+        label
+        heading
+        description
+        list {
+          icon
+          title
+          description
+        }
+        headingSecondary
+        descriptionSecondary
+        button
+        badge
+      }
+      solutions {
+        label
+        heading
+        description
+        list {
+          label
+          title
+          description
+          list {
+            title
+            description
+          }
+          picture {
+            basename
+            alt
+            height
+            url
+            width
+          }
+        }
+      }
+      why {
+        label
+        heading
+        description
+        list {
+          icon
+          title
+          description
+          link {
+            label
+            link
+          }
+        }
+      }
+      testimonials {
+        label
+        heading
+        description
+        list {
+          author
+          text
+          logo {
+            width
+            url
+            height
+            alt
+            basename
+          }
+        }
+      }
+      faq {
+        label
+        heading
+        description
+        list {
+          question
+          answer {
+            value
+          }
+        }
+      }
+      cta {
+        heading
+        description
+        buttonText
+        footnote
+      }
+    }
+  }
+`;
+
+export default async function Home() {
+  const { data } = await performRequest({ query: PAGE_CONTENT_QUERY });
+  const cta = data.homepage.cta;
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+    <>
+      <Hero
+        heading={data.homepage.hero.heading}
+        description={data.homepage.hero.description}
+        buttonPrimary={data.homepage.hero.buttonPrimary}
+        buttonSecondary={data.homepage.hero.buttonSecondary}
+      />
+      <Intro
+        pic={data.homepage.preview}
+        customers={data.homepage.customers}
+        problems={data.homepage.problems}
+      />
+      <Platform {...data.homepage.platform} />
+      <HowWorks {...data.homepage.howworks} />
+      <Solutions {...data.homepage.solutions} />
+      <Why {...data.homepage.why} />
+      <Testimonials {...data.homepage.testimonials} />
+      <FAQ {...data.homepage.faq} />
+      <CTA
+        title={cta.heading}
+        descr={cta.description}
+        btn={cta.buttonText}
+        label={cta.footnote}
+      />
+    </>
   );
 }

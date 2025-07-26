@@ -1,0 +1,19 @@
+.faq {
+  $this: &;
+
+  padding-block: 120px 56px;
+
+  @media (min-width: 740px) {
+    padding-inline: 48px;
+  }
+
+  @media (min-width: 1200px) {
+    border-inline: solid 1px var(--light);
+  }
+
+  &_list {
+    margin-top: 56px;
+    margin-inline: auto;
+    width: min(100%, 600px);
+  }
+}
