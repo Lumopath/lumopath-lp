@@ -8,11 +8,11 @@ const Heading = ({ badge, badgeColor, title, descr, className }) => {
   return (
     <div className={clsx(s.heading, className)}>
       {badge && (
-        <Badge className={s.badge} variant={badgeColor}>
+        <Badge data-aos='fade-up' className={s.badge} variant={badgeColor}>
           {badge}
         </Badge>
       )}
-      <h2>
+      <h2 data-aos='fade-up' data-aos-delay={100}>
         <MarkdownText
           components={{
             p: ({ children }) => <>{children}</>,
@@ -21,7 +21,11 @@ const Heading = ({ badge, badgeColor, title, descr, className }) => {
           {title}
         </MarkdownText>
       </h2>
-      {descr && <p className='lead'>{descr}</p>}
+      {descr && (
+        <p data-aos='fade-up' data-aos-delay={200} className='lead'>
+          {descr}
+        </p>
+      )}
     </div>
   );
 };

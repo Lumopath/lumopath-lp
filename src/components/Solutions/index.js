@@ -7,7 +7,7 @@ import s from './Solutions.module.scss';
 
 const Solutions = ({ label, heading, description, list }) => {
   return (
-    <section id='solutions' className={s.solutions}>
+    <section id='solutions' data-aos='fade' className={s.solutions}>
       <div className='container'>
         <Heading
           badge={label}
@@ -16,7 +16,11 @@ const Solutions = ({ label, heading, description, list }) => {
           descr={description}
         />
 
-        <Tabs.Root defaultValue={list[0].label} className={s.solutions_inner}>
+        <Tabs.Root
+          data-aos='fade-up'
+          defaultValue={list[0].label}
+          className={s.solutions_inner}
+        >
           <Tabs.List className={s.solutions_nav}>
             {list.map(({ label }, i) => (
               <Tabs.Trigger
@@ -42,15 +46,13 @@ const Solutions = ({ label, heading, description, list }) => {
               )}
 
               {picture?.url && (
-                <div className={s.solutions_media}>
-                  <Image
-                    src={picture.url}
-                    alt={picture.alt || picture.basename}
-                    width={picture.width}
-                    height={picture.height}
-                    className={s.solutions_pic}
-                  />
-                </div>
+                <Image
+                  src={picture.url}
+                  alt={picture.alt || picture.basename}
+                  width={picture.width}
+                  height={picture.height}
+                  className={s.solutions_pic}
+                />
               )}
 
               {!!list.length && (

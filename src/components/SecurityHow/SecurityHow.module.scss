@@ -1,0 +1,49 @@
+.how {
+  padding-block: 120px;
+  background-color: var(--blue-light);
+
+  &_list {
+    margin-top: 56px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    @media (min-width: 740px) {
+      gap: 36px;
+    }
+  }
+
+  &_item {
+    border: solid 1px var(--black-4);
+    padding: 24px 16px;
+    border-radius: 12px;
+    display: grid;
+    align-content: start;
+    row-gap: 12px;
+    background-color: var(--blue-20);
+
+    @media (min-width: 740px) {
+      padding: 48px 36px;
+    }
+
+    @media (min-width: 1200px) {
+      flex-basis: calc(100% - 480px - 36px);
+    }
+
+    &:nth-child(3n + 2),
+    &:nth-child(3n + 3) {
+      @media (min-width: 1200px) {
+        flex-basis: 480px;
+      }
+    }
+  }
+
+  &_icon {
+    width: 56px;
+    margin-bottom: 36px;
+  }
+
+  &_descr {
+    color: var(--gray);
+  }
+}

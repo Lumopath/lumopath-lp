@@ -30,6 +30,15 @@ const PAGE_CONTENT_QUERY = `
         height
         alt
         basename
+        video {
+          mp4Url
+          muxPlaybackId
+          width
+          height
+          blurUpThumb
+          thumbnailUrl
+          streamingUrl
+        }
       }
       customers {
         title
@@ -47,7 +56,11 @@ const PAGE_CONTENT_QUERY = `
         description
         list {
           title
-          icon
+          icon {
+            url
+            alt
+            basename
+          }
           description
         }
       }
@@ -72,7 +85,11 @@ const PAGE_CONTENT_QUERY = `
         heading
         description
         list {
-          icon
+          icon {
+            url
+            alt
+            basename
+          }
           title
           description
         }
@@ -107,7 +124,11 @@ const PAGE_CONTENT_QUERY = `
         heading
         description
         list {
-          icon
+          icon {
+            url
+            alt
+            basename
+          }
           title
           description
           link {
@@ -150,6 +171,13 @@ const PAGE_CONTENT_QUERY = `
         footnote
       }
     }
+    allIntegrations(first: 100) {
+      name
+      icon {
+        url
+        alt
+      }
+    }
   }
 `;
 
@@ -165,12 +193,15 @@ export default async function Home() {
         buttonSecondary={data.homepage.hero.buttonSecondary}
       />
       <Intro
-        pic={data.homepage.preview}
+        preview={data.homepage.preview}
         customers={data.homepage.customers}
         problems={data.homepage.problems}
       />
       <Platform {...data.homepage.platform} />
-      <HowWorks {...data.homepage.howworks} />
+      <HowWorks
+        {...data.homepage.howworks}
+        integrations={data.allIntegrations}
+      />
       <Solutions {...data.homepage.solutions} />
       <Why {...data.homepage.why} />
       <Testimonials {...data.homepage.testimonials} />

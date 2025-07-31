@@ -1,0 +1,50 @@
+.investors {
+  $this: &;
+
+  padding-block: 120px;
+  text-align: center;
+  display: grid;
+  justify-items: center;
+  row-gap: 24px;
+  background-color: var(--pink-light);
+
+  &_descr {
+    max-width: 512px;
+    color: var(--gray);
+  }
+
+  &_list {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+
+    @media (min-width: 740px) {
+      gap: 36px;
+    }
+
+    @media (min-width: 1200px) {
+      row-gap: 64px;
+    }
+  }
+
+  &_item {
+    display: grid;
+    place-content: center;
+    overflow: hidden;
+    border-radius: 12px;
+    padding: 8px;
+    background-color: var(--white);
+    flex-basis: calc(50% - 16px);
+    box-shadow: 0 12px 24px rgba(92, 0, 54, 0.04);
+
+    @media (min-width: 740px) {
+      flex-basis: calc((100% - 108px) / 4);
+    }
+
+    @media (min-width: 1200px) {
+      flex-basis: calc((100% - 144px) / 5);
+    }
+  }
+}

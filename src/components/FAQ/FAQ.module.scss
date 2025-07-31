@@ -3,12 +3,8 @@
 
   padding-block: 120px 56px;
 
-  @media (min-width: 740px) {
-    padding-inline: 48px;
-  }
-
   @media (min-width: 1200px) {
-    border-inline: solid 1px var(--light);
+    padding-bottom: 120px;
   }
 
   &_list {

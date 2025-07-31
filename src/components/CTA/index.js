@@ -1,4 +1,5 @@
 import React from 'react';
+import clsx from 'clsx';
 import Button from '../Button';
 import MarkdownText from '../MarkdownText';
 import s from './CTA.module.scss';
@@ -8,9 +9,9 @@ const CTA = ({ title, descr, btn, label }) => {
     return null;
   }
   return (
-    <section id='cta' className='container'>
-      <div className={s.cta}>
-        <h2>
+    <section data-aos='fade' id='cta' className={s.cta}>
+      <div className={clsx('container', s.cta_inner)}>
+        <h2 data-aos='fade-up' data-aos-delay={100}>
           <MarkdownText
             components={{
               p: ({ children }) => <>{children}</>,
@@ -20,10 +21,14 @@ const CTA = ({ title, descr, btn, label }) => {
           </MarkdownText>
         </h2>
 
-        {descr && <div className={s.cta_descr}>{descr}</div>}
+        {descr && (
+          <div data-aos='fade-up' data-aos-delay={200} className={s.cta_descr}>
+            {descr}
+          </div>
+        )}
 
-        {btn && label && (
-          <div className={s.cta_bottom}>
+        {(btn || label) && (
+          <div data-aos='fade-up' data-aos-delay={250} className={s.cta_bottom}>
             {btn && (
               <Button variant='primary' href='#popup'>
                 {btn}

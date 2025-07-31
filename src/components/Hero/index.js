@@ -14,6 +14,7 @@ const Hero = ({ heading, description, buttonPrimary, buttonSecondary }) => {
         width='240'
         height='360'
         fill='none'
+        data-aos='zoom-out'
         className={s.hero_pic}
       >
         <rect width='120' height='120' fill='#CC3488' rx='60' />
@@ -27,7 +28,7 @@ const Hero = ({ heading, description, buttonPrimary, buttonSecondary }) => {
       </svg>
 
       <div className={s.hero_content}>
-        <h1>
+        <h1 data-aos='fade-down'>
           <MarkdownText
             components={{
               p: ({ children }) => <>{children}</>,
@@ -38,13 +39,17 @@ const Hero = ({ heading, description, buttonPrimary, buttonSecondary }) => {
         </h1>
 
         {description && (
-          <div className={s.hero_descr}>
+          <div
+            data-aos='fade-down'
+            data-aos-delay={100}
+            className={s.hero_descr}
+          >
             <MarkdownText>{description}</MarkdownText>
           </div>
         )}
 
         {(hasButtonData(buttonPrimary) || hasButtonData(buttonSecondary)) && (
-          <div className={s.hero_cta}>
+          <div data-aos='fade-down' data-aos-delay={200} className={s.hero_cta}>
             {hasButtonData(buttonPrimary) && (
               <Button
                 variant='primary'
@@ -73,6 +78,7 @@ const Hero = ({ heading, description, buttonPrimary, buttonSecondary }) => {
         width='240'
         height='360'
         fill='none'
+        data-aos='zoom-in'
         className={s.hero_pic}
       >
         <path

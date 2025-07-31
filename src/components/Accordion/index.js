@@ -6,11 +6,17 @@ import s from './Accordion.module.scss';
 
 const AccordionList = ({ data, className }) => {
   return (
-    <Accordion.Root type='multiple' className={clsx(s.accordion, className)}>
+    <Accordion.Root
+      data-aos='fade'
+      type='multiple'
+      className={clsx(s.accordion, className)}
+    >
       {data.map(({ question, answer }, i) => (
         <Accordion.Item
           key={'q' + i}
           value={'q' + i}
+          data-aos='fade-up'
+          data-aos-delay={i * 50}
           className={s.accordion_item}
         >
           <Accordion.Header asChild>

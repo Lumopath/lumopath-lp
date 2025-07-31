@@ -5,7 +5,7 @@ import s from './Platform.module.scss';
 
 const Platform = ({ label, heading, description, list }) => {
   return (
-    <section id='platform' className={s.platform}>
+    <section id='platform' data-aos='fade' className={s.platform}>
       <div className='container'>
         <Heading
           badge={label}
@@ -16,18 +16,20 @@ const Platform = ({ label, heading, description, list }) => {
 
         <div className={s.platform_list}>
           {list.map(({ title, description, picture }, i) => (
-            <div key={title + i} className={s.platform_item}>
+            <div
+              key={title + i}
+              data-aos='fade-up'
+              data-aos-delay={i * 100}
+              className={s.platform_item}
+            >
               {picture?.url && (
-                <div className={s.platform_media}>
-                  <Image
-                    src={picture.url}
-                    alt={picture.alt || picture.basename}
-                    width={368}
-                    height={276}
-                    objectFit='contain'
-                    className={s.platform_pic}
-                  />
-                </div>
+                <Image
+                  src={picture.url}
+                  alt={picture.alt || picture.basename}
+                  width={picture.width || 368}
+                  height={picture.height || 276}
+                  className={s.platform_pic}
+                />
               )}
 
               <div className={s.platform_content}>

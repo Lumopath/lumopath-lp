@@ -10,15 +10,38 @@
       grid-template-columns: 1fr 1fr;
       column-gap: 16px;
 
-      > :not(:first-child, :nth-child(2)) {
+      > :first-child,
+      :last-child:nth-child(even) {
         grid-column: span 2;
       }
     }
   }
 
-  &_btn {
-    &.success {
-      background-color: var(--green) !important;
+  &_success {
+    display: grid;
+    row-gap: 24px;
+
+    &_icon {
+      justify-self: center;
+
+      @media (min-width: 740px) {
+        display: none;
+      }
+    }
+
+    &_descr {
+      font-size: 18px;
+      line-height: 1.5;
+      color: var(--gray);
+      text-align: center;
+
+      @media (min-width: 740px) {
+        text-align: left;
+      }
+    }
+
+    &_btn {
+      margin-top: 12px;
     }
   }
 }

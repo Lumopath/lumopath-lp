@@ -5,7 +5,6 @@ import clsx from 'clsx';
 import Button from '../Button';
 import Logo from '../Logo';
 import Menu from '../Menu';
-import BtnPopup from '../BtnPopup';
 import s from './Header.module.scss';
 
 const Header = ({ logo, menu, buttonPrimary, buttonSecondary }) => {
@@ -39,20 +38,27 @@ const Header = ({ logo, menu, buttonPrimary, buttonSecondary }) => {
   const hasButtonData = (btn) => btn?.label && btn?.link;
 
   return (
-    <header className={s.header}>
+    <header data-aos='fade-down' className={s.header}>
       <div className={clsx('container', s.header_inner)}>
         <Logo pic={logo} className={s.header_logo} />
 
         <nav className={clsx(s.header_nav, { [s.show]: isMenuOpen })}>
           <Menu variant='header' data={menu} handleClose={handleClose} />
-          {hasButtonData(buttonSecondary) && (
-            <Button
-              variant='secondary'
-              href={buttonSecondary.link}
-              className={s.header_login}
-            >
-              {buttonSecondary.label}
-            </Button>
+
+          {(hasButtonData(buttonSecondary) || hasButtonData(buttonPrimary)) && (
+            <div className={s.header_nav_btns}>
+              {hasButtonData(buttonSecondary) && (
+                <Button variant='secondary' href={buttonSecondary.link}>
+                  {buttonSecondary.label}
+                </Button>
+              )}
+
+              {hasButtonData(buttonPrimary) && (
+                <Button variant='primary' href={buttonPrimary.link}>
+                  {buttonPrimary.label}
+                </Button>
+              )}
+            </div>
           )}
         </nav>
 

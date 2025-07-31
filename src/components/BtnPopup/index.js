@@ -11,23 +11,31 @@ import s from './BtnPopup.module.scss';
 const BtnPopup = ({ label, handleClose, size, variant, className }) => {
   const [open, setOpen] = useState(false);
 
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleOpenChange = (isOpen) => {
+    setOpen(isOpen);
+
+    if (isOpen) {
+      setSubmitted(false);
+    }
+  };
+
+  const closePopup = () => {
+    setOpen(false);
+  };
+
   return (
-    <Dialog.Root open={open} onOpenChange={setOpen}>
+    <Dialog.Root open={open} onOpenChange={handleOpenChange}>
       <Dialog.Trigger asChild>
-        {variant ? (
-          <Button
-            variant={variant}
-            size={size}
-            onClick={handleClose}
-            className={className}
-          >
-            {label}
-          </Button>
-        ) : (
-          <button onClick={handleClose} className={className}>
-            {label}
-          </button>
-        )}
+        <Button
+          variant={variant}
+          size={size}
+          onClick={handleClose}
+          className={className}
+        >
+          {label}
+        </Button>
       </Dialog.Trigger>
 
       <Dialog.Portal>
@@ -35,7 +43,44 @@ const BtnPopup = ({ label, handleClose, size, variant, className }) => {
           <Dialog.Content aria-describedby={undefined} className={s.popup}>
             <Dialog.Title asChild>
               <div className={clsx('h4', s.popup_title)}>
-                {label}
+                {submitted ? (
+                  <div className={s.popup_success}>
+                    <svg
+                      xmlns='http://www.w3.org/2000/svg'
+                      width='28'
+                      height='28'
+                      fill='none'
+                      className={s.popup_success_icon}
+                    >
+                      <rect
+                        width='27'
+                        height='27'
+                        x='.5'
+                        y='.5'
+                        fill='#FFEFFB'
+                        rx='13.5'
+                      />
+                      <rect
+                        width='27'
+                        height='27'
+                        x='.5'
+                        y='.5'
+                        stroke='#FFC8E5'
+                        rx='13.5'
+                      />
+                      <path
+                        stroke='#AF0C70'
+                        strokeLinecap='round'
+                        strokeLinejoin='round'
+                        strokeWidth='1.5'
+                        d='M19.33 10 12 17.33 8.67 14'
+                      />
+                    </svg>
+                    Your request has been sent!
+                  </div>
+                ) : (
+                  label
+                )}
 
                 <Dialog.Close asChild>
                   <button
@@ -50,7 +95,8 @@ const BtnPopup = ({ label, handleClose, size, variant, className }) => {
             </Dialog.Title>
             <Form
               button={label}
-              handleClose={() => setOpen(false)}
+              handleClose={closePopup}
+              onSuccess={() => setSubmitted(true)}
               className={s.popup_form}
             />
           </Dialog.Content>

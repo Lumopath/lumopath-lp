@@ -2,7 +2,7 @@
   $this: &;
 
   display: grid;
-  row-gap: 12px;
+  row-gap: 8px;
   position: relative;
 
   &_input {
@@ -15,6 +15,10 @@
     min-height: 56px;
     display: grid;
     align-items: center;
+
+    &::placeholder {
+      color: #83858b;
+    }
 
     &:is(:hover, &:focus-visible) {
       border-color: var(--gray);
@@ -31,9 +35,20 @@
     }
 
     &:is(textarea) {
-      height: 56px;
+      height: 95px;
       resize: none;
+
+      &::-webkit-scrollbar {
+        &-track {
+          margin-block: 8px;
+        }
+      }
     }
+  }
+
+  &_hint {
+    font-size: 14px;
+    color: #83858b;
   }
 
   &_error {

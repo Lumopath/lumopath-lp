@@ -4,8 +4,6 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-// import logo from '@/assets/img/logo.svg?url';
-// import logoWhite from '@/assets/img/logo-white.svg?url';
 
 const Logo = ({ isFooter, pic, className }) => {
   const pathname = usePathname();

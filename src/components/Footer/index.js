@@ -8,7 +8,7 @@ import s from './Footer.module.scss';
 const Footer = ({ logo, description, menu, socials, copyright }) => {
   const currentYear = new Date().getFullYear();
   return (
-    <footer className={s.footer}>
+    <footer data-aos='fade' className={s.footer}>
       <div className={clsx('container', s.footer_inner)}>
         <div className={s.footer_top}>
           <div className={s.footer_info}>

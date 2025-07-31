@@ -17,33 +17,39 @@ const Field = ({
   const name = label.split(' ').join('_');
 
   const validationRules = () => {
-    if (type === 'email')
+    const baseRules = {
+      required: !!isRequired && '*required',
+      validate: (value) => !isRequired || value.trim() !== '' || '*required',
+    };
+
+    if (type === 'email') {
       return {
-        required: !!isRequired && '*required',
+        ...baseRules,
         pattern: {
           value: emailPattern,
           message: '*invalid format',
         },
       };
+    }
 
-    if (type === 'tel')
+    if (type === 'tel') {
       return {
-        required: !!isRequired && '*required',
+        ...baseRules,
         pattern: {
           value: telPattern,
           message: '*invalid format',
         },
       };
+    }
 
-    return {
-      required: !!isRequired && '*required',
-    };
+    return baseRules;
   };
 
   return (
     <div className={s.field}>
       <label htmlFor={name} className={s.field_label}>
-        {label}
+        {label}{' '}
+        {!isRequired && <span className={s.field_hint}>(Optional)</span>}
       </label>
 
       {type === 'textarea' ? (

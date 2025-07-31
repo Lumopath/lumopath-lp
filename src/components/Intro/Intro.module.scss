@@ -1,23 +1,8 @@
 .intro {
-  @media (min-width: 1200px) {
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-    overflow: hidden;
-    border-top: solid 1px var(--light);
-    border-inline: solid 1px var(--light);
-  }
-
-  &_pic {
-    border-radius: 12px;
-    border: solid 1px var(--light);
-    margin-inline: auto;
-
-    @media (min-width: 1200px) {
-      margin: -1px;
-      width: calc(100% + 2px);
-      max-width: unset;
-    }
-  }
+  border-radius: 12px;
+  border: solid 1px var(--light);
+  width: 100%;
+  overflow: hidden;
 }
 
 .customers {
@@ -25,27 +10,15 @@
 
   display: grid;
   row-gap: 12px;
-  padding-top: 80px;
+  padding-block: 80px;
+  grid-template-rows: auto 90px;
 
   &:not(:last-child) {
-    #{$this}_list {
-      border-bottom: solid 1px var(--light);
-    }
+    border-bottom: solid 1px var(--light);
   }
 
   &_label {
     text-align: center;
-  }
-
-  &_list {
-    margin-inline: calc(var(--container-padding) * -1);
-    width: calc(100% + (var(--container-padding) * 2)) !important;
-    padding-bottom: 40px;
-
-    @media (min-width: 1200px) {
-      margin-inline: unset;
-      width: 100% !important;
-    }
   }
 
   &_logo {
@@ -56,65 +29,30 @@
 }
 
 .problems {
-  padding-top: 96px;
+  padding-block: 120px;
 
   &_list {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    border-top: solid 1px var(--light);
-    padding-bottom: 64px;
     margin-top: 56px;
-    position: relative;
-    margin-inline: calc(var(--container-padding) * -1);
-    width: calc(100% + (var(--container-padding) * 2)) !important;
+    gap: 16px;
 
-    @media (min-width: 1200px) {
-      margin-inline: unset;
-      width: 100% !important;
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 64px;
-      mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 1200 65'%3E%3Cpath fill='%23EBEBEB' d='m10.33-1.5.7.7-181.01 181.02-.7-.7zm13.73 0 .7.7-181.01 181.03-.71-.71zm13.73 0 .7.71-181.01 181.02-.71-.7zm13.72 0 .7.7-181.01 181.03-.7-.71zm13.73 0 .7.7-181.01 181.03-.71-.71zm13.72 0 .7.7-181.01 181.02-.7-.7zm13.73 0 .7.7-181.01 181.03-.7-.71zm13.73 0 .7.7-181.01 181.03-.71-.7zm13.72 0 .7.7-181.01 181.02-.7-.7zm13.73 0 .7.7-181.01 181.03-.7-.71zm13.73 0 .7.7-181 181.04-.71-.7zm13.72 0 .7.7-181.01 181.02-.7-.7zm13.73 0 .7.7-181 181.04-.7-.71zm13.73 0 .7.71-181 181.02-.71-.7zm13.72 0 .7.7-181 181.02-.7-.7zm13.73 0 .7.7-181 181.04-.71-.71zm13.73 0 .7.71-181 181.02-.71-.7zm13.72 0 .7.7-181 181.04-.7-.71zm13.73 0 .7.7L77.1 180.24l-.71-.71zm13.72 0 .7.7-181 181.02-.7-.7zm13.73 0 .7.7-181.01 181.03-.7-.71zm13.73 0 .7.7-181.01 181.03-.71-.7zm13.72 0 .7.7L132 180.22l-.7-.7zm13.73 0 .7.7-181.01 181.03-.7-.71zm13.73 0 .7.7-181.01 181.03-.71-.7zm13.73 0 .7.7-181.02 181.02-.7-.7zm13.72 0 .7.7-181.01 181.03-.7-.71zm13.73 0 .7.7-181.01 181.03-.71-.7zm13.72 0 .7.7-181.01 181.02-.7-.7zm13.73 0 .7.7-181 181.04-.71-.71zm13.73 0 .7.71-181.01 181.02-.71-.7zm13.72 0 .7.7-181.01 181.03-.7-.71zm13.73 0 .7.7-181.01 181.03-.71-.71zm13.72 0 .72.71L283 180.23l-.71-.7zm13.73 0 .7.7-181.01 181.03-.7-.71zm13.73 0 .7.7-181.01 181.03-.71-.7zm13.73 0 .7.71-181.01 181.02-.71-.7zm13.72 0 .7.7L337.9 180.24l-.7-.71zm13.73 0 .7.7-181.01 181.03-.71-.7zm13.72 0 .7.7-181.01 181.02-.7-.7zm13.73 0 .7.7-181.01 181.03-.7-.71zm13.73 0 .7.7-181.01 181.03-.71-.7zm13.72 0 .7.7-181.01 181.02-.7-.7zm13.73 0 .7.7-181.01 181.03-.7-.71zm13.73 0 .7.71-181 181.02-.71-.7zm13.72 0 .7.7-181.01 181.02-.7-.7zm13.73 0 .7.7-181.01 181.03-.71-.71zm13.73 0 .7.71-181.01 181.02-.71-.7zm13.72 0 .7.7-181 181.04-.7-.71zm13.73 0 .7.7-181.01 181.03-.71-.7zm13.72 0 .7.7-181.01 181.02-.7-.7zm13.73 0 .7.7-181.01 181.03-.7-.71zm13.72 0 .72.7L543.8 180.24l-.71-.7zm13.73 0 .7.7-181.01 181.02-.7-.7zm13.73 0 .7.7-181.01 181.03-.7-.71zm13.73 0 .7.7-181.01 181.03-.71-.7zm13.72 0 .7.7L598.7 180.22l-.7-.7zm13.73 0 .7.7-181.01 181.03-.7-.71zm13.73 0 .7.71-181.01 181.02-.71-.7zm13.73 0 .7.7-181.02 181.02-.7-.7zm13.72 0 .7.7-181.01 181.03-.71-.71zm13.73 0 .7.71-181.01 181.02-.71-.7zm13.72 0 .7.7-181.01 181.03-.7-.71zm13.73 0 .7.7-181 181.04-.71-.7zm13.73 0 .7.71-181.01 181.02-.71-.7zm13.72 0 .7.7-181.01 181.03-.7-.71zm13.73 0 .7.7-181.01 181.03-.71-.7zm13.72 0 .7.7-181 181.02-.7-.7zm13.73 0 .7.7-181.01 181.03-.7-.71zm13.73 0 .7.7-181.01 181.03-.71-.7zm13.72 0 .7.7-181.01 181.02-.7-.7zm13.73 0 .7.7L804.6 180.24l-.7-.71zm13.73 0 .7.71-181.01 181.02-.71-.7zm13.72 0 .7.7-181.01 181.03-.7-.71zm13.73 0 .7.7-181.01 181.03-.7-.71zm13.73 0 .7.7-181.01 181.03-.7-.71zm13.72 0 .7.7-181.01 181.03-.7-.71zm13.73 0 .7.7-181.01 181.03-.7-.71zm13.72 0 .7.7-181.01 181.03-.7-.71zm13.73 0 .7.7-181.01 181.03-.7-.71zm13.73 0 .7.7-181.01 181.03-.7-.71zm13.72 0 .7.7-181.01 181.03-.7-.71zm13.73 0 .7.7-181 181.04-.7-.71zm13.73 0 .7.7-181.01 181.03-.7-.71zm13.72 0 .7.7-181.01 181.03-.7-.71zm13.73 0 .7.7-181.01 181.03-.7-.71zm13.73 0 .7.7-181.01 181.03-.7-.71zm13.72 0 .7.7-181.01 181.03-.7-.71zm13.73 0 .7.7-181.01 181.03-.7-.71zm13.73 0 .7.7-181.01 181.03-.7-.71zm13.72 0 .7.7-181.01 181.03-.7-.71zm13.73 0 .7.7-181.01 181.03-.7-.71zm13.73 0 .7.7-181.01 181.03-.7-.71zm13.72 0 .7.7-181.01 181.03-.7-.71zm13.73 0 .7.7-181.01 181.03-.7-.71zm13.72 0 .7.7-181.01 181.03-.7-.71zm13.73 0 .7.7-181.01 181.03-.7-.71zm13.73 0 .7.7-181.01 181.03-.7-.71zm13.72 0 .7.7-181.01 181.03-.7-.71zm13.73 0 .7.7-181.01 181.03-.7-.71z'/%3E%3C/svg%3E");
-      background-color: var(--light);
-      mask-size: cover;
-      mask-repeat: no-repeat;
-      mask-position: center;
-      pointer-events: none;
+    @media (min-width: 740px) {
+      gap: 36px;
     }
   }
 
   &_item {
-    padding: 48px 36px;
+    padding: 40px 32px;
     display: grid;
     row-gap: 24px;
     align-content: start;
-    position: relative;
-    isolation: isolate;
-    flex: 1 0 calc(100% / 3);
-    min-width: 340px;
-    border-right: solid 1px var(--light);
-    border-bottom: solid 1px var(--light);
-
-    @media (min-width: 1200px) {
-      margin-right: -1px;
-    }
-
-    &::before {
-      content: '';
-      position: absolute;
-      inset: 8px;
-      border-radius: 12px;
-      border: solid 1px var(--black-4);
-      background-color: var(--_bg);
-      z-index: -1;
-    }
+    flex: 1 0 calc((100% - 72px) / 3);
+    min-width: 300px;
+    border: solid 1px var(--black-4);
+    background-color: var(--_bg);
+    border-radius: 12px;
 
     &:nth-child(3n + 1) {
       --_bg: var(--blue-light);
@@ -137,12 +75,17 @@
     grid-auto-flow: column;
     justify-content: space-between;
     align-content: start;
+    align-items: center;
     min-height: 48px;
     border-bottom: solid 1px var(--_heading-border);
   }
 
+  &_title {
+    line-height: 1;
+  }
+
   &_icon {
-    font-size: 24px;
+    width: 24px;
   }
 
   &_descr {

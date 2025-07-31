@@ -1,9 +1,7 @@
 .header {
-  position: sticky;
-  top: 0;
+  position: relative;
   z-index: 10;
   backdrop-filter: blur(60px);
-  transform: translate3d(0, 0, 0);
   background-color: var(--white-80);
   border-bottom: solid 1px var(--light);
 
@@ -115,7 +113,7 @@
       height: 100vh;
       height: 100dvh;
       z-index: 11;
-      padding-block: 72px 48px;
+      padding-block: 72px;
       transform: translate3d(0, -20px, 0);
       display: grid;
       align-content: center;
@@ -132,14 +130,21 @@
     @media (min-width: 1200px) {
       max-width: calc(100vw - 520px);
     }
-  }
 
-  &_login {
-    width: min(100%, 420px);
-    margin-inline: auto;
+    &_btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-inline: auto;
 
-    @media (min-width: 1200px) {
-      display: none !important;
+      @media (min-width: 1200px) {
+        display: none !important;
+      }
+
+      > * {
+        flex: 1 0 calc(50% - 8px);
+        min-width: 320px;
+      }
     }
   }
 }

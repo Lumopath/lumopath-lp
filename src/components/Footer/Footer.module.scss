@@ -2,6 +2,7 @@
   background-color: #33001b;
   color: var(--white);
   display: grid;
+  margin-top: auto;
 
   &::after {
     content: '';

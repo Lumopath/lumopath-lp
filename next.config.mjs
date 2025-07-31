@@ -6,6 +6,7 @@ const nextConfig = {
     remotePatterns: [
       { protocol: 'https', hostname: 'www.datocms-assets.com' },
       { protocol: 'https', hostname: 'picsum.photos' },
+      { protocol: 'https', hostname: 'image.mux.com' },
     ],
   },
 

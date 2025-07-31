@@ -11,17 +11,11 @@ import s from './Button.module.scss';
 
 gsap.registerPlugin(ScrollToPlugin);
 
-const Button = ({
-  variant,
-  size,
-  href,
-  isExternal,
-  children,
-  className,
-  ...rest
-}) => {
+const Button = ({ variant, size, href, children, className, ...rest }) => {
   const pathname = usePathname();
   const isHomepage = pathname === '/';
+
+  const isExternal = href?.startsWith('http') || href?.startsWith('https');
 
   const shouldApplyStyles = Boolean(variant);
   const btnProps = {
