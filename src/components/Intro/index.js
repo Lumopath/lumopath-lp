@@ -3,7 +3,6 @@ import Image from 'next/image';
 import Marquee from 'react-fast-marquee';
 import Heading from '../Heading';
 import clsx from 'clsx';
-// import { VideoPlayer } from 'react-datocms';
 import CustomVideo from '../CustomVideo';
 import s from './Intro.module.scss';
 
@@ -27,14 +26,6 @@ const Intro = ({ preview, customers, problems }) => {
               alt={preview.alt || preview.basename}
               className={s.intro}
             />
-            // <VideoPlayer
-            //   data={preview.video}
-            //   autoPlay
-            //   loop
-            //   muted
-            //   noControls
-            //   className={s.intro}
-            // />
           )}
           {isPicture && (
             <Image

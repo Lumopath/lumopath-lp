@@ -1,36 +1,59 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Hls from 'hls.js';
 
-const CustomVideo = ({ src, poster, alt, className }) => {
+const CustomVideo = ({ src, poster, alt, className, ...rest }) => {
   const videoRef = useRef(null);
+  const containerRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    if (Hls.isSupported() && videoRef.current) {
+    if (!isVisible || !videoRef.current) return;
+
+    if (Hls.isSupported()) {
       const hls = new Hls();
       hls.loadSource(src);
       hls.attachMedia(videoRef.current);
-
-      return () => {
-        hls.destroy();
-      };
-    } else if (videoRef.current?.canPlayType('application/vnd.apple.mpegurl')) {
+      videoRef.current.play().catch(() => {});
+      return () => hls.destroy();
+    } else if (videoRef.current.canPlayType('application/vnd.apple.mpegurl')) {
       videoRef.current.src = src;
+      videoRef.current.play().catch(() => {});
     }
-  }, [src]);
+  }, [isVisible, src]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.intersectionRatio === 1) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 1 }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <video
-      ref={videoRef}
-      poster={poster}
-      playsInline
-      autoPlay
-      muted
-      loop
-      aria-label={alt}
-      className={className}
-    />
+    <div ref={containerRef}>
+      <video
+        ref={videoRef}
+        poster={poster}
+        aria-label={alt}
+        className={className}
+        muted
+        playsInline
+        loop
+        {...rest}
+      />
+    </div>
   );
 };
 
