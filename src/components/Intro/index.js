@@ -6,7 +6,7 @@ import clsx from 'clsx';
 import CustomVideo from '../CustomVideo';
 import s from './Intro.module.scss';
 
-const Intro = ({ preview, customers, problems }) => {
+const Intro = ({ preview, previewPoster, customers, problems }) => {
   const previewType = preview?.video?.mp4Url
     ? 'video'
     : preview?.url
@@ -22,7 +22,7 @@ const Intro = ({ preview, customers, problems }) => {
           {isVideo && (
             <CustomVideo
               src={preview.video.streamingUrl}
-              poster={preview.video.thumbnailUrl}
+              poster={previewPoster || preview.video.thumbnailUrl}
               alt={preview.alt || preview.basename}
               className={s.intro}
             />

@@ -40,6 +40,9 @@ const PAGE_CONTENT_QUERY = `
           streamingUrl
         }
       }
+      previewPoster {
+        url
+      }
       customers {
         title
         logos {
@@ -194,6 +197,7 @@ export default async function Home() {
       />
       <Intro
         preview={data.homepage.preview}
+        previewPoster={data.homepage.previewPoster?.url}
         customers={data.homepage.customers}
         problems={data.homepage.problems}
       />
