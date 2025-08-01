@@ -3,7 +3,10 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { AOSInit } from '@/components/AOS';
 import { performRequest } from '@/lib/datocms';
-import Script from 'next/script';
+import ApolloScript from '@/components/scripts/ApolloScript';
+import LiveChatScript from '@/components/scripts/LiveChatScript';
+import HubspotScript from '@/components/scripts/HubspotScript';
+import MouseflowScript from '@/components/scripts/MouseflowScript';
 import './globals.scss';
 
 export const dynamic = 'force-dynamic';
@@ -147,23 +150,7 @@ export default async function RootLayout({ children }) {
   return (
     <html lang='en'>
       <head>
-        <Script id='apollo-tracker' strategy='afterInteractive'>
-          {`
-            (function initApollo(){
-              var n=Math.random().toString(36).substring(7);
-              var o=document.createElement("script");
-              o.src = "https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=" + n;
-              o.async = true;
-              o.defer = true;
-              o.onload = function(){
-                window.trackingFunctions.onLoad({
-                  appId: "660b364a5c16db02e83eb720"
-                });
-              };
-              document.head.appendChild(o);
-            })();
-          `}
-        </Script>
+        <ApolloScript />
       </head>
       <body className={`${instrumentSans.className}`} suppressHydrationWarning>
         <AOSInit />
@@ -183,6 +170,9 @@ export default async function RootLayout({ children }) {
             description={description}
           />
         </div>
+        <LiveChatScript />
+        <HubspotScript />
+        <MouseflowScript />
       </body>
     </html>
   );
