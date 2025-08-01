@@ -9,6 +9,7 @@ import s from './Header.module.scss';
 
 const Header = ({ logo, menu, buttonPrimary, buttonSecondary }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const handleToggle = () => {
     setIsMenuOpen((prevState) => !prevState);
     document.body.style.overflow = isMenuOpen ? '' : 'hidden';
