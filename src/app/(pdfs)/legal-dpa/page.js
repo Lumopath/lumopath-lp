@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import { performRequest } from '@/lib/datocms';
-import './page.scss';
+import './../page.scss';
 
 const QUERY = `
   query {
