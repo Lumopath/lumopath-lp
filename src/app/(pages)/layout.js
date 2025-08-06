@@ -9,8 +9,6 @@ import HubspotScript from '@/components/scripts/HubspotScript';
 import MouseflowScript from '@/components/scripts/MouseflowScript';
 import './globals.scss';
 
-export const dynamic = 'force-dynamic';
-
 const instrumentSans = Instrument_Sans({
   weight: ['400', '500', '600', '700'],
   subsets: ['latin'],

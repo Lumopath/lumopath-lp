@@ -1,8 +1,6 @@
 import { performRequest } from '@/lib/datocms';
 import './globals.scss';
 
-export const dynamic = 'force-dynamic';
-
 const CONTENT_QUERY = `
   query Global {
     _site {
