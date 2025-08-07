@@ -24,25 +24,6 @@ const PAGE_CONTENT_QUERY = `
           link
         }
       }
-      preview {
-        width
-        url
-        height
-        alt
-        basename
-        video {
-          mp4Url
-          muxPlaybackId
-          width
-          height
-          blurUpThumb
-          thumbnailUrl
-          streamingUrl
-        }
-      }
-      previewPoster {
-        url
-      }
       customers {
         title
         logos {
@@ -196,8 +177,6 @@ export default async function Home() {
         buttonSecondary={data.homepage.hero.buttonSecondary}
       />
       <Intro
-        preview={data.homepage.preview}
-        previewPoster={data.homepage.previewPoster?.url}
         customers={data.homepage.customers}
         problems={data.homepage.problems}
       />

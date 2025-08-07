@@ -1,42 +1,32 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-import Hls from 'hls.js';
+import { useEffect, useRef } from 'react';
+import poster from '@/assets/img/poster.webp';
 
-const CustomVideo = ({ src, poster, alt, className, ...rest }) => {
+const CustomVideo = ({ className, ...rest }) => {
   const videoRef = useRef(null);
   const containerRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    if (!isVisible || !videoRef.current) return;
+    const videoEl = videoRef.current;
+    const containerEl = containerRef.current;
 
-    if (Hls.isSupported()) {
-      const hls = new Hls();
-      hls.loadSource(src);
-      hls.attachMedia(videoRef.current);
-      videoRef.current.play().catch(() => {});
-      return () => hls.destroy();
-    } else if (videoRef.current.canPlayType('application/vnd.apple.mpegurl')) {
-      videoRef.current.src = src;
-      videoRef.current.play().catch(() => {});
-    }
-  }, [isVisible, src]);
+    if (!videoEl || !containerEl) return;
 
-  useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.intersectionRatio === 1) {
-          setIsVisible(true);
-          observer.disconnect();
+          videoEl.play().catch(() => {});
+        } else {
+          videoEl.pause();
         }
       },
-      { threshold: 1 }
+      {
+        threshold: 1,
+      }
     );
 
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
+    observer.observe(containerEl);
 
     return () => observer.disconnect();
   }, []);
@@ -45,12 +35,13 @@ const CustomVideo = ({ src, poster, alt, className, ...rest }) => {
     <div ref={containerRef}>
       <video
         ref={videoRef}
-        poster={poster}
-        aria-label={alt}
-        className={className}
+        src='/hero.webm'
+        poster={poster?.src}
+        aria-label='Video'
         muted
         playsInline
         loop
+        className={className}
         {...rest}
       />
     </div>

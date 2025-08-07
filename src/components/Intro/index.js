@@ -6,39 +6,12 @@ import clsx from 'clsx';
 import CustomVideo from '../CustomVideo';
 import s from './Intro.module.scss';
 
-const Intro = ({ preview, previewPoster, customers, problems }) => {
-  const previewType = preview?.video?.mp4Url
-    ? 'video'
-    : preview?.url
-    ? 'image'
-    : null;
-
-  const isVideo = previewType === 'video';
-  const isPicture = previewType === 'image';
+const Intro = ({ customers, problems }) => {
   return (
     <>
-      {(isVideo || isPicture) && (
-        <div data-aos='zoom-out' data-aos-delay={100} className='container'>
-          {isVideo && (
-            <CustomVideo
-              src={preview.video.streamingUrl}
-              poster={previewPoster || preview.video.thumbnailUrl}
-              alt={preview.alt || preview.basename}
-              className={s.intro}
-            />
-          )}
-          {isPicture && (
-            <Image
-              width={preview.width}
-              height={preview.height}
-              src={preview.url}
-              alt={preview.alt || preview.basename}
-              priority
-              className={s.intro}
-            />
-          )}
-        </div>
-      )}
+      <div data-aos='zoom-out' data-aos-delay={100} className='container'>
+        <CustomVideo className={s.intro} />
+      </div>
 
       {!!customers.logos.length && (
         <div id='customers' className={s.customers}>
