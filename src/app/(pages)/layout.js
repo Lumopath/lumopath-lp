@@ -100,7 +100,8 @@ export async function generateMetadata() {
       template: `%s${data?._site?.globalSeo?.titleSuffix || ''}`,
       default: fallbackSeo.title || 'Lumopath - Stop Guessing, Start Growing',
     },
-    description: fallbackSeo.description || 'Default description',
+    description:
+      fallbackSeo.description || 'AI Coaching to Supercharge Your Team',
     openGraph: {
       images: [
         {

@@ -1,0 +1,42 @@
+.challenge {
+  margin-block: 120px;
+
+  &_descr {
+    max-width: 640px;
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--gray);
+    margin-top: 24px;
+  }
+
+  &_list {
+    margin-top: 36px;
+    display: grid;
+    gap: 16px;
+
+    @media (min-width: 740px) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 36px;
+    }
+  }
+
+  &_item {
+    display: grid;
+    align-content: start;
+    row-gap: 24px;
+    padding: 16px;
+    border: solid 1px var(--light);
+    border-radius: 12px;
+
+    &_icon {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+    }
+
+    &_descr {
+      font-size: 18px;
+      line-height: 1.5;
+    }
+  }
+}

@@ -10,6 +10,7 @@
   --gray: #4d515a;
   --gray-light: #f9f9f9;
   --gray-lightest: #fcfcfc;
+  --gray-dark: #83858b;
   --pink: #cc3488;
   --pink-lightest: #fff4fe;
   --pink-light: #ffeffb;
@@ -177,6 +178,21 @@ img {
   font-style: italic;
   pointer-events: none;
   user-select: none;
+}
+
+blockquote {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  quotes: none;
+
+  &::before,
+  &::after {
+    content: none;
+  }
 }
 
 table {

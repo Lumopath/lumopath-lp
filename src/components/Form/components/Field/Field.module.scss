@@ -17,10 +17,10 @@
     align-items: center;
 
     &::placeholder {
-      color: #83858b;
+      color: var(--gray-dark);
     }
 
-    &:is(:hover, &:focus-visible) {
+    &:is(:hover, :focus-visible) {
       border-color: var(--gray);
     }
 
@@ -48,7 +48,7 @@
 
   &_hint {
     font-size: 14px;
-    color: #83858b;
+    color: var(--gray-dark);
   }
 
   &_error {

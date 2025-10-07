@@ -1,0 +1,122 @@
+.content {
+  margin-bottom: 80px;
+  width: min(100%, 600px);
+  margin-inline: auto;
+
+  &_lead {
+    font-size: 20px;
+    line-height: 1.4;
+  }
+
+  :is(h2, h3, h4, h5, h6) {
+    margin-top: 80px;
+  }
+
+  :is(h2, h3, h4, h5, h6) {
+    margin-bottom: 24px;
+  }
+
+  :is(p, ul, ol) {
+    color: var(--gray);
+  }
+
+  ul {
+    list-style: square;
+  }
+
+  li {
+    &:not(:first-child) {
+      margin-top: 0.5em;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 0.5em;
+    }
+  }
+
+  :is(p, ul, ol) {
+    &:not(:first-child) {
+      margin-top: 1em;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 1em;
+    }
+  }
+
+  p {
+    &:empty {
+      height: 1em;
+    }
+  }
+
+  &_media {
+    display: grid;
+    row-gap: 16px;
+    text-align: center;
+    justify-items: center;
+
+    &:not(:first-child) {
+      margin-top: 48px;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 48px;
+    }
+  }
+
+  &_pic {
+    border-radius: 12px;
+    margin-inline: auto;
+  }
+
+  &_caption {
+    color: var(--gray-dark);
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 500;
+  }
+
+  blockquote {
+    border-radius: 12px;
+    border: solid 1px var(--black-4);
+    padding: 68px 24px 24px;
+    width: 100%;
+    background-color: var(--blue-light);
+    font-size: 18px;
+    line-height: 1.5;
+    font-style: italic;
+    position: relative;
+
+    &:not(:first-child) {
+      margin-top: 48px;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 48px;
+    }
+
+    &::before {
+      content: '';
+      width: 28px;
+      height: 28px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 28 28'%3E%3Cpath fill='%230252C0' d='M20.75 11.72c.42-2.3 1.59-4.49 3.45-6.15-5.27.79-9.2 5.28-9.27 10.62v.73a5.23 5.23 0 1 0 5.82-5.2ZM7.56 22.14a5.23 5.23 0 0 0 .6-10.42c.42-2.3 1.59-4.49 3.45-6.15-5.28.78-9.2 5.28-9.27 10.62l-.01.73a5.23 5.23 0 0 0 5.23 5.22Z'/%3E%3C/svg%3E")
+        no-repeat center / contain;
+      position: absolute;
+      left: 24px;
+      top: 24px;
+    }
+
+    * {
+      color: var(--black);
+    }
+
+    footer {
+      font-weight: 600;
+
+      &::before {
+        content: '— ';
+      }
+    }
+  }
+}

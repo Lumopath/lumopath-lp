@@ -34,6 +34,50 @@ const Menu = ({ variant, handleClose, data }) => {
           );
         }
 
+        if (link === '#resources') {
+          const resourcesLinks = [
+            { href: '/blog', label: 'Blog' },
+            { href: '/case-studies', label: 'Case Studies' },
+          ];
+
+          if (variant === 'header') {
+            return (
+              <li key={label + i} className={s.menu_group}>
+                <span className={s.menu_parent}>Resources</span>
+                <ul className={s.menu_sublist}>
+                  {resourcesLinks.map((item) => (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        onClick={() => handleClose?.()}
+                        className={s.menu_link}
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            );
+          } else {
+            return (
+              <React.Fragment key={label + i}>
+                {resourcesLinks.map((item) => (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      onClick={() => handleClose?.()}
+                      className={s.menu_link}
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </React.Fragment>
+            );
+          }
+        }
+
         const isAnchor = link.includes('#');
 
         if (isAnchor && isHomepage) {

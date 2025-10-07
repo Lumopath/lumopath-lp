@@ -4,12 +4,16 @@ import Button from '../Button';
 import MarkdownText from '../MarkdownText';
 import s from './CTA.module.scss';
 
-const CTA = ({ title, descr, btn, label }) => {
+const CTA = ({ title, descr, btn, label, isInner }) => {
   if (!title) {
     return null;
   }
   return (
-    <section data-aos='fade' id='cta' className={s.cta}>
+    <section
+      data-aos='fade'
+      id='cta'
+      className={clsx(s.cta, { [s.inner]: isInner })}
+    >
       <div className={clsx('container', s.cta_inner)}>
         <h2 data-aos='fade-up' data-aos-delay={100}>
           <MarkdownText

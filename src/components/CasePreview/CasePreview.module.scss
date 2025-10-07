@@ -1,0 +1,42 @@
+.case {
+  border: solid 1px var(--light);
+  border-radius: 12px;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  align-content: start;
+
+  &:is(:hover, :focus-visible) {
+    background-color: var(--gray-lightest);
+  }
+
+  &_pic {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+  }
+
+  &_content {
+    padding: 16px;
+    display: grid;
+    align-content: start;
+    row-gap: 16px;
+
+    @media (min-width: 1200px) {
+      padding: 24px 32px;
+      row-gap: 24px;
+    }
+  }
+
+  &_title {
+    font-size: 20px;
+    line-height: 1.4;
+    font-weight: 500;
+  }
+
+  &_logo {
+    height: 32px;
+    width: auto;
+    object-fit: contain;
+  }
+}

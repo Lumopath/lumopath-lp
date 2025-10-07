@@ -9,6 +9,13 @@
     padding-bottom: 140px;
   }
 
+  &.inner {
+    padding-block: 64px 135px;
+    margin-block: 80px;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
   &::after {
     content: '';
     position: absolute;

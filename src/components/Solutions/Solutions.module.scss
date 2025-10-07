@@ -56,7 +56,7 @@
       transition: background-color 0.25s ease-in-out;
     }
 
-    &:is(:hover, &:focus-visible),
+    &:is(:hover, :focus-visible),
     &[data-state='active'] {
       &::after {
         background-color: var(--green-dark);

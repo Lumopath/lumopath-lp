@@ -1,6 +1,7 @@
 export default function NotFound() {
   return (
     <div
+      data-aos='zoom-in'
       className='container'
       style={{
         textAlign: 'center',

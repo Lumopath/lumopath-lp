@@ -1,0 +1,13 @@
+.cases {
+  margin-bottom: 120px;
+
+  &_list {
+    display: grid;
+    row-gap: 16px;
+
+    @media (min-width: 740px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 64px 36px;
+    }
+  }
+}

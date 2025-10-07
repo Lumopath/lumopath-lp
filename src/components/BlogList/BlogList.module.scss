@@ -1,0 +1,23 @@
+.blog {
+  display: grid;
+  row-gap: 16px;
+  margin-bottom: 120px;
+
+  @media (min-width: 740px) {
+    row-gap: 80px;
+  }
+
+  &_list {
+    display: grid;
+    row-gap: 16px;
+
+    @media (min-width: 740px) {
+      gap: 64px 36px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1200px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}

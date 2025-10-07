@@ -1,0 +1,30 @@
+.more {
+  padding-block: 80px 120px;
+  border-top: solid 1px var(--light);
+
+  &_title {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  &_list {
+    display: grid;
+    gap: 16px 36px;
+
+    @media (min-width: 740px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 1200px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &_item {
+    &:nth-child(3) {
+      @media (max-width: 1199.98px) {
+        display: none;
+      }
+    }
+  }
+}
