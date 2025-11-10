@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 import { AOSInit } from '@/components/AOS';
 import { performRequest } from '@/lib/datocms';
 import ApolloScript from '@/components/scripts/ApolloScript';
-import LiveChatScript from '@/components/scripts/LiveChatScript';
+import FrontChatScript from '@/components/scripts/FrontChatScript';
 import HubspotScript from '@/components/scripts/HubspotScript';
 import MouseflowScript from '@/components/scripts/MouseflowScript';
 import './globals.scss';
@@ -168,7 +168,7 @@ export default async function RootLayout({ children }) {
             description={description}
           />
         </div>
-        <LiveChatScript />
+        <FrontChatScript />
         <HubspotScript />
         <MouseflowScript />
       </body>
