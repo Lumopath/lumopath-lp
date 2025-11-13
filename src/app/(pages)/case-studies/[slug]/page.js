@@ -9,6 +9,25 @@ import PriorProcess from '@/components/PriorProcess';
 import Solution from '@/components/Solution';
 import Result from '@/components/Result';
 
+export const dynamicParams = false;
+export const revalidate = false;
+
+export async function generateStaticParams() {
+  const { data } = await performRequest({
+    query: `
+      query AllSlugs {
+        allCases(filter: { visible: { eq: true } }) {
+          slug
+        }
+      }
+    `,
+  });
+
+  return data.allCases.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
 export const SINGLE_CASE_QUERY = `
   query SingleCase($slug: String!) {
     case(filter: {slug: {eq: $slug}}) {
@@ -271,7 +290,9 @@ export default async function CasePage({ params }) {
       <RelatedMore
         title={data.caseStudiesModel.relatedMoreTitle}
         currentPost={caseStudy}
-        relatedPosts={caseStudy.relatedMore || []}
+        relatedPosts={(caseStudy.relatedMore || []).filter(
+          (post) => post.visible
+        )}
         allPosts={data.allCases || []}
         CardComponent={CasePreview}
       />

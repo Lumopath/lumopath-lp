@@ -6,6 +6,25 @@ import PostContent from '@/components/PostContent';
 import RelatedMore from '@/components/RelatedMore';
 import BlogPost from '@/components/BlogPost';
 
+export const dynamicParams = false;
+export const revalidate = false;
+
+export async function generateStaticParams() {
+  const { data } = await performRequest({
+    query: `
+      query AllSlugs {
+        allPosts(filter: { visible: { eq: true } }) {
+          slug
+        }
+      }
+    `,
+  });
+
+  return data.allPosts.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
 export const SINGLE_POST_QUERY = `
   query SinglePost($slug: String!) {
     post(filter: {slug: {eq: $slug}}) {
@@ -161,7 +180,7 @@ export default async function PostPage({ params }) {
       <RelatedMore
         title={data.blog.relatedMoreTitle}
         currentPost={post}
-        relatedPosts={post.relatedMore || []}
+        relatedPosts={(post.relatedMore || []).filter((post) => post.visible)}
         allPosts={data.allPosts || []}
         CardComponent={BlogPost}
       />
