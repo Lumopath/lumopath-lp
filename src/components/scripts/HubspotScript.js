@@ -5,8 +5,9 @@ export default function HubspotScript() {
   return (
     <Script
       id='hubspot-script'
-      src='//js.hs-scripts.com/22077126.js'
+      src='https://js.hs-scripts.com/22077126.js'
       strategy='afterInteractive'
+      type='text/javascript'
     />
   );
 }
