@@ -23,7 +23,7 @@ const nextConfig = {
               "style-src 'self' 'unsafe-inline' blob:",
               "img-src 'self' data: https://chat.frontapp.com https://chat-assets.frontusercontent.com https://www.datocms-assets.com https://picsum.photos https://image.mux.com",
               "font-src 'self' data: https://chat-assets.frontapp.com",
-              "connect-src 'self' https://chat-assets.frontapp.com https://chat.frontapp.com https://us-west-1-chat-server.frontapp.com https://us-west-2-chat-server.frontapp.com https://eu-west-1-chat-server.frontapp.com wss://front-us-realtime.ably.io wss://front-eu-realtime.ably.io https://chat-webhook.frontapp.com https://*.bugsnag.com https://*.browser-intake-datadoghq.com https://cdn.mouseflow.com https://js.hs-scripts.com https://formspree.io",
+              "connect-src 'self' https://chat-assets.frontapp.com https://chat.frontapp.com https://us-west-1-chat-server.frontapp.com https://us-west-2-chat-server.frontapp.com https://eu-west-1-chat-server.frontapp.com wss://front-us-realtime.ably.io wss://front-eu-realtime.ably.io https://chat-webhook.frontapp.com https://*.bugsnag.com https://*.browser-intake-datadoghq.com https://cdn.mouseflow.com https://js.hs-scripts.com https://formspree.io https://aplo-evnt.com",
               "object-src 'none'",
               "worker-src blob:",
             ].join('; '),
