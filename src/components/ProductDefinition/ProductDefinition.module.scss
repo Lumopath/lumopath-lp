@@ -1,0 +1,20 @@
+.productDefinition {
+  padding-top: 120px;
+  padding-bottom: 70px;
+
+  &_title {
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: center;
+
+    @media (max-width: 739.98px) {
+      font-size: 22px;
+    }
+
+    strong {
+      font-weight: 500;
+      color: var(--pink-dark);
+    }
+  }
+}

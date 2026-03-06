@@ -1,22 +1,23 @@
-import React from 'react';
-import Image from 'next/image';
-import Marquee from 'react-fast-marquee';
-import Heading from '../Heading';
-import clsx from 'clsx';
-import CustomVideo from '../CustomVideo';
-import s from './Intro.module.scss';
+import React from "react";
+import Image from "next/image";
+import Marquee from "react-fast-marquee";
+import Heading from "../Heading";
+import clsx from "clsx";
+import CustomVideo from "../CustomVideo";
+import s from "./Intro.module.scss";
+import MarkdownText from "../MarkdownText";
 
 const Intro = ({ customers, problems }) => {
   return (
     <>
-      <div data-aos='zoom-out' data-aos-delay={100} className='container'>
+      <div data-aos="zoom-out" data-aos-delay={100} className="container">
         <CustomVideo className={s.intro} />
       </div>
 
       {!!customers.logos.length && (
-        <div id='customers' className={s.customers}>
+        <div id="customers" className={s.customers}>
           {customers.title && (
-            <div data-aos='fade-down' className={s.customers_label}>
+            <div data-aos="fade-down" className={s.customers_label}>
               {customers.title}
             </div>
           )}
@@ -24,12 +25,12 @@ const Intro = ({ customers, problems }) => {
           <Marquee gradient gradientWidth={112} autoFill>
             {customers.logos.map((pic, i) => (
               <Image
-                key={'c' + i}
+                key={"c" + i}
                 src={pic.url}
                 alt={pic.alt || pic.basename}
                 width={pic.width}
                 height={pic.height}
-                data-aos='fade-up'
+                data-aos="fade-up"
                 className={s.customers_logo}
               />
             ))}
@@ -37,10 +38,10 @@ const Intro = ({ customers, problems }) => {
         </div>
       )}
 
-      <div id='problems' className={clsx('container', s.problems)}>
+      <div id="problems" className={clsx("container", s.problems)}>
         <Heading
           badge={problems.label}
-          badgeColor='blue'
+          badgeColor="blue"
           title={problems.heading}
           descr={problems.description}
         />
@@ -48,13 +49,21 @@ const Intro = ({ customers, problems }) => {
         <div className={s.problems_list}>
           {problems.list.map(({ title, icon, description }, i) => (
             <div
-              data-aos='fade-up'
+              data-aos="fade-up"
               data-aos-delay={i * 100}
               key={title + i}
               className={s.problems_item}
             >
               <div className={s.problems_heading}>
-                <h3 className={clsx('h6', s.problems_title)}>{title}</h3>
+                <h3 className={clsx("h6", s.problems_title)}>
+                  <MarkdownText
+                    components={{
+                      p: ({ children }) => <>{children}</>,
+                    }}
+                  >
+                    {title}
+                  </MarkdownText>
+                </h3>
                 {icon && (
                   <Image
                     src={icon.url}

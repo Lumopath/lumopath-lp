@@ -1,13 +1,15 @@
-import CTA from '@/components/CTA';
-import FAQ from '@/components/FAQ';
-import Hero from '@/components/Hero';
-import HowWorks from '@/components/HowWorks';
-import Intro from '@/components/Intro';
-import Platform from '@/components/Platform';
-import Testimonials from '@/components/Testimonials';
-import Why from '@/components/Why';
-import Solutions from '@/components/Solutions';
-import { performRequest } from '@/lib/datocms';
+import CTA from "@/components/CTA";
+import FAQ from "@/components/FAQ";
+import Hero from "@/components/Hero";
+import HowWorks from "@/components/HowWorks";
+import Intro from "@/components/Intro";
+import Platform from "@/components/Platform";
+import Testimonials from "@/components/Testimonials";
+import Why from "@/components/Why";
+import Solutions from "@/components/Solutions";
+import { performRequest } from "@/lib/datocms";
+import ClarkVsDaniel from "@/components/ClarkVsDaniel";
+import ProductDefinition from "@/components/ProductDefinition";
 
 const PAGE_CONTENT_QUERY = `
   query Home {
@@ -47,6 +49,26 @@ const PAGE_CONTENT_QUERY = `
           }
           description
         }
+      }
+      clarkVsDaniel{
+        label
+        heading
+        tableHeading1
+        whatCrmShows
+        tablesubheading1
+        tableHeading2
+        lumopathReveals
+        tablesubheading2
+        conclusion
+        conclusionIcon {
+          url
+          alt
+          basename
+        }
+        ctaLabel
+      }
+      productDefinition{
+        content
       }
       platform {
         label
@@ -180,7 +202,9 @@ export default async function Home() {
         customers={data.homepage.customers}
         problems={data.homepage.problems}
       />
+      <ClarkVsDaniel {...data.homepage.clarkVsDaniel} />
       <Platform {...data.homepage.platform} />
+      <ProductDefinition {...data.homepage.productDefinition} />
       <HowWorks
         {...data.homepage.howworks}
         integrations={data.allIntegrations}
