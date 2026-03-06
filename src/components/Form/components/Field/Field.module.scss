@@ -24,7 +24,7 @@
       border-color: var(--gray);
     }
 
-    &[aria-invalid='true'],
+    &[aria-invalid="true"],
     &.invalid {
       border-color: red;
 
@@ -59,6 +59,8 @@
     left: 0;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 150ms ease-in-out, visibility 150ms ease-in-out;
+    transition:
+      opacity 150ms ease-in-out,
+      visibility 150ms ease-in-out;
   }
 }
