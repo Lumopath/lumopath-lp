@@ -46,7 +46,7 @@
     }
 
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       bottom: 0;
       left: 0;
@@ -57,17 +57,17 @@
     }
 
     &:is(:hover, :focus-visible),
-    &[data-state='active'] {
+    &[data-state="active"] {
       &::after {
         background-color: var(--green-dark);
       }
     }
 
-    &[data-state='active'] {
+    &[data-state="active"] {
       pointer-events: none;
     }
 
-    &[data-state='inactive'] {
+    &[data-state="inactive"] {
       color: var(--gray);
     }
   }
@@ -77,7 +77,7 @@
       display: grid;
       column-gap: 36px;
 
-      &[data-state='inactive'] {
+      &[data-state="inactive"] {
         display: none;
       }
     }
@@ -106,7 +106,7 @@
     position: relative;
 
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       top: 50%;
       left: 0;

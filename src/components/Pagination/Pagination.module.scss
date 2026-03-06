@@ -47,7 +47,7 @@
       width: 55px;
 
       &::after {
-        content: '';
+        content: "";
         width: 16px;
         height: 16px;
         mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 16'%3E%3Cpath stroke='%230252C0' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M3.33 8h9.34m0 0L8 3.33M12.67 8 8 12.67'/%3E%3C/svg%3E");

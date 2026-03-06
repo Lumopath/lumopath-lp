@@ -1,6 +1,8 @@
 :root {
   --white: #fff;
+  --white-10: rgba(255, 255, 255, 0.1);
   --white-16: rgba(255, 255, 255, 0.16);
+  --white-50: rgba(255, 255, 255, 0.5);
   --white-70: rgba(255, 255, 255, 0.7);
   --white-80: rgba(255, 255, 255, 0.8);
   --black: #000;
@@ -17,6 +19,7 @@
   --pink-dark: #af0c70;
   --pink-stroke: #ffc8e5;
   --pink-stroke-10: rgba(255, 200, 229, 0.1);
+  --pink-stroke-50: rgba(255, 200, 229, 0.5);
   --green: #1fa995;
   --green-light: #e0fff8;
   --green-dark: #007765;
@@ -30,6 +33,7 @@
   --yellow: #f7d263;
   --yellow-light: #fff2cc;
   --yellow-dark: #e7aa00;
+  --orange-dark: #db3a00;
   --container-padding: 16px;
 }
 
@@ -155,9 +159,9 @@ textarea {
 }
 
 button,
-[type='button'],
-[type='reset'],
-[type='submit'] {
+[type="button"],
+[type="reset"],
+[type="submit"] {
   -webkit-appearance: button;
   background-color: transparent;
   background-image: none;
