@@ -76,6 +76,7 @@ const PAGE_CONTENT_QUERY = `
         description
         list {
           title
+          quote
           description
           picture {
             basename
@@ -90,14 +91,32 @@ const PAGE_CONTENT_QUERY = `
         label
         heading
         description
+        callout
+        calloutIcon {
+          url
+          alt
+          basename
+        }
         list {
           icon {
             url
             alt
             basename
           }
+          iconActive {
+            url
+            alt
+            basename
+          }
           title
           description
+          content {
+            url
+            alt
+            basename
+            width
+            height
+          }
         }
         headingSecondary
         descriptionSecondary

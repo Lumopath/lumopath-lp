@@ -1,24 +1,26 @@
-import React from 'react';
-import Image from 'next/image';
-import Heading from '../Heading';
-import s from './Platform.module.scss';
+import React from "react";
+import Image from "next/image";
+import Heading from "../Heading";
+import s from "./Platform.module.scss";
+import MarkdownText from "../MarkdownText";
+import clsx from "clsx";
 
 const Platform = ({ label, heading, description, list }) => {
   return (
-    <section id='platform' data-aos='fade' className={s.platform}>
-      <div className='container'>
+    <section id="platform" data-aos="fade" className={s.platform}>
+      <div className="container">
         <Heading
           badge={label}
-          badgeColor='pink'
+          badgeColor="pink"
           title={heading}
           descr={description}
         />
 
         <div className={s.platform_list}>
-          {list.map(({ title, description, picture }, i) => (
+          {list.map(({ title, description, picture, quote }, i) => (
             <div
               key={title + i}
-              data-aos='fade-up'
+              data-aos="fade-up"
               data-aos-delay={i * 100}
               className={s.platform_item}
             >
@@ -33,7 +35,16 @@ const Platform = ({ label, heading, description, list }) => {
               )}
 
               <div className={s.platform_content}>
-                <h3 className='h6'>{title}</h3>
+                <h3 className={clsx("h6", s.platform_title)}>{title}</h3>
+                {quote && (
+                  <div className={s.platform_quote}>
+                    <MarkdownText
+                      components={{ p: ({ children }) => <>{children}</> }}
+                    >
+                      {quote}
+                    </MarkdownText>
+                  </div>
+                )}
                 {description && (
                   <div className={s.platform_descr}>{description}</div>
                 )}
