@@ -6,8 +6,9 @@ import clsx from "clsx";
 import CustomVideo from "../CustomVideo";
 import s from "./Intro.module.scss";
 import MarkdownText from "../MarkdownText";
+import Testimonials from "../Testimonials";
 
-const Intro = ({ customers, problems }) => {
+const Intro = ({ customers, problems, testimonials }) => {
   return (
     <>
       <div data-aos="zoom-out" data-aos-delay={100} className="container">
@@ -35,6 +36,8 @@ const Intro = ({ customers, problems }) => {
               />
             ))}
           </Marquee>
+
+          <Testimonials {...testimonials} />
         </div>
       )}
 

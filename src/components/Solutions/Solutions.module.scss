@@ -21,6 +21,11 @@
       column-gap: 36px;
     }
 
+    @media (max-width: 739.98px) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
     &:has(#{$this}_btn:nth-child(4)) {
       max-width: 100%;
 
@@ -76,6 +81,7 @@
     @media (min-width: 1024px) {
       display: grid;
       column-gap: 36px;
+      align-items: start;
 
       &[data-state="inactive"] {
         display: none;
@@ -128,18 +134,22 @@
   }
 
   &_pic {
-    margin-top: 36px;
     border-radius: 12px;
     background-color: #bfe8df;
     overflow: hidden;
     place-content: center;
     aspect-ratio: 788 / 560;
     width: 100%;
+    height: auto;
+  }
 
+  &_picWrapper {
+    width: 100%;
+    margin-top: 36px;
     @media (min-width: 1024px) {
       margin-top: unset;
       grid-column: 2 / 3;
-      grid-row: 1 / 4;
+      grid-row: 1 / 5;
       width: min(50vw, 768px);
       max-width: unset;
     }
@@ -149,6 +159,45 @@
 
       @media (min-width: 1024px) {
         margin-bottom: unset;
+      }
+    }
+  }
+
+  &_bottomText {
+    padding: 18px 28px;
+    display: flex;
+    gap: 20px;
+    border: 1px solid var(--green-stroke);
+    border-radius: 12px;
+    color: var(--gray);
+
+    svg {
+      font-size: 56px;
+      min-width: 56px;
+    }
+
+    strong {
+      font-weight: 400;
+      color: #000;
+    }
+
+    &.picWrapperBottomText {
+      margin-top: 10px;
+      @media (max-width: 1023.98px) {
+        display: none;
+      }
+    }
+
+    &.listBottomText {
+      margin-top: 24px;
+      padding: 18px 16px;
+
+      @media (max-width: 739.98px) {
+        flex-direction: column;
+      }
+
+      @media (min-width: 1024px) {
+        display: none;
       }
     }
   }

@@ -1,0 +1,269 @@
+.roi {
+  padding-top: 56px;
+  padding-bottom: 120px;
+  display: grid;
+
+  @media (min-width: 740px) {
+    padding-top: 100px;
+  }
+
+  &_blocks {
+    display: grid;
+    padding: 10px;
+    gap: 16px;
+
+    position: relative;
+    isolation: isolate;
+
+    @media (min-width: 1200px) {
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    &::before {
+      content: "";
+      inset: 0;
+      position: absolute;
+      pointer-events: none;
+      z-index: -1;
+      border-radius: 20px;
+      background:
+        linear-gradient(rgb(white, 90%), rgb(white, 90%)) content-box,
+        linear-gradient(98deg, #ffc8e5 0%, #8ebfff 100%);
+      padding: 1px;
+    }
+  }
+
+  &_ctaButton {
+    margin-top: 100px;
+    justify-self: center;
+
+    @media (max-width: 739.98px) {
+      margin-top: 56px;
+    }
+  }
+}
+
+.calculation {
+  padding: 46px 36px 36px;
+
+  @media (max-width: 739.98px) {
+    padding: 30px 16px;
+  }
+
+  &_title {
+    font-weight: 500;
+    text-align: center;
+
+    @media (max-width: 739.98px) {
+      font-size: 26px;
+      padding: 0px 46px;
+    }
+  }
+
+  &_content {
+    margin-top: 40px;
+
+    @media (min-width: 1200px) {
+      margin-top: 46px;
+    }
+  }
+}
+
+.summary {
+  padding: 46px 36px 36px;
+
+  position: relative;
+  isolation: isolate;
+
+  &::before {
+    content: "";
+    inset: 0;
+    position: absolute;
+    pointer-events: none;
+    z-index: -1;
+    border-radius: 12px;
+    background:
+      linear-gradient(rgb(white, 90%), rgb(white, 90%)) content-box,
+      linear-gradient(98deg, #ffc8e5 0%, #8ebfff 100%);
+    padding: 2px;
+  }
+
+  @media (max-width: 739.98px) {
+    padding: 30px 16px;
+  }
+
+  &_title {
+    font-weight: 600;
+    text-align: center;
+
+    @media (max-width: 739.98px) {
+      font-size: 26px;
+      padding: 0px 46px;
+    }
+  }
+
+  &_content {
+    margin-top: 36px;
+    padding: 0 28px;
+    border: 1px solid var(--pink-stroke-50);
+    border-radius: 10px;
+
+    @media (max-width: 739.98px) {
+      padding: 0 16px;
+    }
+  }
+
+  &_result {
+    padding: 0 28px;
+    position: relative;
+    margin-top: 36px;
+    border: 1px solid var(--pink-stroke-50);
+    border-radius: 10px;
+    display: grid;
+    justify-items: center;
+
+    &::before {
+      content: "";
+      position: absolute;
+
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24'%3E%3Cpath stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 5v14M19 12l-7 7-7-7'/%3E%3C/svg%3E")
+        no-repeat center / contain;
+      width: 24px;
+      height: 24px;
+      bottom: calc(100% + 6px);
+    }
+
+    @media (max-width: 739.98px) {
+      padding: 0 16px;
+    }
+  }
+}
+
+.item {
+  $this: &;
+
+  padding: 28px 0;
+
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  @media (max-width: 739.98px) {
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 12px;
+  }
+
+  &:not(:first-child) {
+    border-top: 1px solid var(--pink-stroke-50);
+  }
+
+  &_label {
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--gray);
+  }
+
+  &_value {
+    font-weight: 500;
+    font-size: 28px;
+    font-variant-numeric: tabular-nums;
+    overflow: hidden;
+    text-overflow: ellipsis;
+max-width: 70vw;
+
+    @media (min-width: 740px) {
+      max-width: 55%;
+    }
+  }
+
+  &__result {
+    #{$this}_value {
+      font-size: 34px;
+      @media (min-width: 1200px) {
+        font-size: 36px;
+      }
+    }
+  }
+
+  &__slider {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    padding-bottom: 8px;
+
+    #{$this}_label {
+      color: #000;
+      & > em {
+        font-style: normal;
+        color: var(--gray);
+        font-weight: 400;
+      }
+
+      @media (max-width: 739.98px) {
+        display: grid;
+        justify-items: center;
+        text-align: center;
+        row-gap: 4px;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  // Masked currency input – styles aligned with Slider input (Slider.module.scss 53–79)
+  &__input {
+    padding: 0;
+    margin-top: 32px;
+    &:not(:first-child) {
+      border-top: none;
+    }
+
+    #{$this}_label {
+      color: #000;
+      display: grid;
+      gap: 4px;
+
+      & > em {
+        font-style: normal;
+        color: var(--gray);
+        font-weight: 400;
+        font-size: 14px;
+
+        @media (max-width: 739.98px) {
+          font-size: 16px;
+        }
+      }
+    }
+
+    #{$this}_inputField {
+      min-height: 64px;
+      padding: 6px;
+      width: 100%;
+      border: 1px solid var(--light);
+      border-radius: 6px;
+      background-color: transparent;
+      font-size: 24px;
+      font-weight: 500;
+
+      @media (min-width: 740px) {
+        max-width: 220px;
+        text-align: end;
+      }
+
+      /* Chrome, Safari, Edge, Opera – hide number spinners */
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      /* Firefox */
+      &[type="number"] {
+        -moz-appearance: textfield;
+        appearance: textfield;
+      }
+    }
+  }
+}

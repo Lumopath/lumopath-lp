@@ -3,13 +3,14 @@ import FAQ from "@/components/FAQ";
 import Hero from "@/components/Hero";
 import HowWorks from "@/components/HowWorks";
 import Intro from "@/components/Intro";
-import Platform from "@/components/Platform";
-import Testimonials from "@/components/Testimonials";
 import Why from "@/components/Why";
 import Solutions from "@/components/Solutions";
 import { performRequest } from "@/lib/datocms";
 import ClarkVsDaniel from "@/components/ClarkVsDaniel";
 import ProductDefinition from "@/components/ProductDefinition";
+import Questions from "@/components/Questions";
+import TheMath from "@/components/TheMath";
+import ROI from "@/components/ROI";
 
 const PAGE_CONTENT_QUERY = `
   query Home {
@@ -17,6 +18,7 @@ const PAGE_CONTENT_QUERY = `
       hero {
         heading
         description
+        callout
         buttonPrimary {
           label
           link
@@ -70,23 +72,6 @@ const PAGE_CONTENT_QUERY = `
       productDefinition{
         content
       }
-      platform {
-        label
-        heading
-        description
-        list {
-          title
-          quote
-          description
-          picture {
-            basename
-            height
-            alt
-            url
-            width
-          }
-        }
-      }
       howworks {
         label
         heading
@@ -118,10 +103,60 @@ const PAGE_CONTENT_QUERY = `
             height
           }
         }
-        headingSecondary
-        descriptionSecondary
-        button
-        badge
+      }
+      theMath{
+        label
+        heading
+        drivers{
+          icon{
+            url
+            alt
+            basename
+          }
+          theMath
+          proofPoint
+          headline
+        }
+      }
+      roi{
+        label
+        ctaLabel
+        blocks{
+          label
+          list{
+            ... on RoiSummaryItemRecord{
+              key
+              initialValue
+              label
+              __typename
+            }
+            
+             ... on RoiSummaryInputRecord{
+              key
+              initialValue
+              label
+              __typename
+            }
+            
+             ... on RoiSummarySliderRecord{
+              key
+              maximumValue
+              maximumValueLabel
+              minimumValue
+              minimumValueLabel
+              initialValue
+              label
+              __typename
+            }
+            
+             ... on RoiSummaryResultRecord{
+              key
+              initialValue
+              label
+              __typename
+            }
+          }
+        }
       }
       solutions {
         label
@@ -142,6 +177,15 @@ const PAGE_CONTENT_QUERY = `
             url
             width
           }
+          bottomText
+        }
+      }
+      whyNot{
+        label
+        heading
+        cards{
+          name
+          body
         }
       }
       why {
@@ -216,21 +260,25 @@ export default async function Home() {
         description={data.homepage.hero.description}
         buttonPrimary={data.homepage.hero.buttonPrimary}
         buttonSecondary={data.homepage.hero.buttonSecondary}
+        callout={data.homepage.hero.callout}
       />
       <Intro
         customers={data.homepage.customers}
         problems={data.homepage.problems}
+        testimonials={data.homepage.testimonials}
       />
       <ClarkVsDaniel {...data.homepage.clarkVsDaniel} />
-      <Platform {...data.homepage.platform} />
+      {/* <Platform {...data.homepage.platform} /> */}
       <ProductDefinition {...data.homepage.productDefinition} />
       <HowWorks
         {...data.homepage.howworks}
         integrations={data.allIntegrations}
       />
+      <TheMath {...data.homepage.theMath} />
+      <ROI {...data.homepage.roi} />
       <Solutions {...data.homepage.solutions} />
+      <Questions {...data.homepage.whyNot} />
       <Why {...data.homepage.why} />
-      <Testimonials {...data.homepage.testimonials} />
       <FAQ {...data.homepage.faq} />
       <CTA
         title={cta.heading}
