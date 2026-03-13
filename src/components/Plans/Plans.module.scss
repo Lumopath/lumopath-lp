@@ -96,4 +96,21 @@
       }
     }
   }
+
+  &_subTitle {
+    margin-top: 18px;
+    font-size: 18px;
+    line-height: 1.4;
+    color: var(--gray);
+    justify-self: center;
+
+    @media (min-width: 1200px) {
+      margin-top: 24px;
+      grid-column: 1 / 4;
+    }
+
+    @media (min-width: 740px) {
+      text-align: center;
+    }
+  }
 }

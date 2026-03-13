@@ -172,10 +172,10 @@
     font-variant-numeric: tabular-nums;
     overflow: hidden;
     text-overflow: ellipsis;
-max-width: 70vw;
+    max-width: 70vw;
 
     @media (min-width: 740px) {
-      max-width: 55%;
+      max-width: 200px;
     }
   }
 
@@ -184,6 +184,10 @@ max-width: 70vw;
       font-size: 34px;
       @media (min-width: 1200px) {
         font-size: 36px;
+      }
+
+      @media (min-width: 740px) {
+        max-width: 230px;
       }
     }
   }
@@ -212,7 +216,6 @@ max-width: 70vw;
     }
   }
 
-  // Masked currency input – styles aligned with Slider input (Slider.module.scss 53–79)
   &__input {
     padding: 0;
     margin-top: 32px;

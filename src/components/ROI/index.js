@@ -214,7 +214,9 @@ const RoiBlockItem = ({
       className={clsx(s.item, s[`item__${typesMap[__typename]}`])}
     >
       <h3 className={s.item_label}>{label}</h3>
-      <strong className={s.item_value}>{formattedValue}</strong>
+      <strong className={s.item_value} title={formattedValue}>
+        {formattedValue}
+      </strong>
     </div>
   );
 };

@@ -102,8 +102,8 @@
     padding-top: 50px;
 
     #{$this}_thumb {
-      display: grid;
-      justify-items: center;
+      display: flex;
+      justify-content: center;
     }
   }
 }
