@@ -32,7 +32,9 @@ const RevealTable = ({ tableHeading2, lumopathReveals, tablesubheading2 }) => {
     };
   }, []);
 
-  const REVEALS_INIT_DELAY = isMobile ? 300 : 1400;
+  const REVEALS_INIT_DELAY = isMobile ? 300 : 700;
+
+  const REVEALS_DATA_DELAY = REVEALS_INIT_DELAY + 400;
 
   const formatedData = useMemo(() => {
     if (!data) return [];
@@ -56,7 +58,7 @@ const RevealTable = ({ tableHeading2, lumopathReveals, tablesubheading2 }) => {
           <div className={s.clarkVsDaniel_whatReveals_tableWrapper}>
             <table className={s.clarkVsDaniel_whatReveals_table}>
               <thead>
-                <tr>
+                <tr data-aos="fade-up" data-aos-delay={REVEALS_DATA_DELAY}>
                   {formatedData.columns?.map((column, i) => (
                     <th key={i}>{column}</th>
                   ))}
@@ -66,7 +68,10 @@ const RevealTable = ({ tableHeading2, lumopathReveals, tablesubheading2 }) => {
                 {formatedData.data?.map((row, i) => (
                   <Fragment key={i}>
                     {isMobile && (
-                      <tr>
+                      <tr
+                        data-aos="fade-up"
+                        data-aos-delay={REVEALS_DATA_DELAY + i * 100}
+                      >
                         <td
                           colSpan={formatedData.columns.length}
                           className={s.clarkVsDaniel_whatReveals_mobileTitle}
@@ -75,17 +80,18 @@ const RevealTable = ({ tableHeading2, lumopathReveals, tablesubheading2 }) => {
                         </td>
                       </tr>
                     )}
-                    <tr>
+                    <tr
+                      data-aos="fade-up"
+                      data-aos-delay={REVEALS_DATA_DELAY + i * 100}
+                    >
                       {formatedData.columns?.map((column, j) => (
                         <td
                           key={column}
                           className={clsx({
                             [s.orange]:
-                              (!isMobile && i < 2 && j === 1) ||
-                              (isMobile && i < 2 && j === 0),
+                              (!isMobile && j === 1) || (isMobile && j === 0),
                             [s.green]:
-                              (!isMobile && i < 2 && j === 2) ||
-                              (isMobile && i < 2 && j === 1),
+                              (!isMobile && j === 2) || (isMobile && j === 1),
                           })}
                         >
                           {row[column]}
@@ -98,7 +104,13 @@ const RevealTable = ({ tableHeading2, lumopathReveals, tablesubheading2 }) => {
             </table>
           </div>
         )}
-        <div className={s.clarkVsDaniel_whatReveals_subheading}>
+        <div
+          className={s.clarkVsDaniel_whatReveals_subheading}
+          data-aos="fade-up"
+          data-aos-delay={
+            REVEALS_DATA_DELAY + formatedData.data?.length * 100 + 100
+          }
+        >
           <MarkdownText components={{ p: ({ children }) => <>{children}</> }}>
             {tablesubheading2}
           </MarkdownText>
