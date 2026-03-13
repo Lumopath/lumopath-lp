@@ -116,16 +116,10 @@ const ROI = ({ label, blocks, ctaLabel }) => {
 };
 
 const CtaButton = ({ children }) => {
-  const handleScroll = (e) => {
-    e.preventDefault();
-    gsap.to(window, { scrollTo: "#cta", ease: "power2" });
-  };
-
   return (
     <Button
       variant="primary"
-      href={"#cta"}
-      onClick={handleScroll}
+      href="#popup"
       className={s.roi_ctaButton}
       data-aos="fade-up"
     >
