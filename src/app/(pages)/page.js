@@ -7,7 +7,6 @@ import Why from "@/components/Why";
 import Solutions from "@/components/Solutions";
 import { performRequest } from "@/lib/datocms";
 import ClarkVsDaniel from "@/components/ClarkVsDaniel";
-import ProductDefinition from "@/components/ProductDefinition";
 import Questions from "@/components/Questions";
 import ROI from "@/components/ROI";
 
@@ -67,9 +66,6 @@ const PAGE_CONTENT_QUERY = `
           basename
         }
         ctaLabel
-      }
-      productDefinition{
-        content
       }
       howworks {
         label
@@ -254,7 +250,6 @@ export default async function Home() {
       />
       <ClarkVsDaniel {...data.homepage.clarkVsDaniel} />
       {/* <Platform {...data.homepage.platform} /> */}
-      <ProductDefinition {...data.homepage.productDefinition} />
       <HowWorks
         {...data.homepage.howworks}
         integrations={data.allIntegrations}
