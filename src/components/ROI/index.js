@@ -55,7 +55,7 @@ const ROI = ({ label, blocks, ctaLabel }) => {
 
   return (
     <section className={clsx("container", s.roi)}>
-      <Heading badge={label} badgeColor="pink" />
+      <Heading badge={label} badgeColor="blue" />
 
       <div className={s.roi_blocks} data-aos="fade-up">
         <div className={s.calculation}>
@@ -213,7 +213,16 @@ const RoiBlockItem = ({
       data-aos-delay={dataAosDelay}
       className={clsx(s.item, s[`item__${typesMap[__typename]}`])}
     >
-      <h3 className={s.item_label}>{label}</h3>
+      <h3 className={s.item_label}>
+        <MarkdownText
+          components={{
+            p: ({ children }) => <>{children}</>,
+            em: ({ children }) => <span>{children}</span>,
+          }}
+        >
+          {label}
+        </MarkdownText>
+      </h3>
       <strong className={s.item_value} title={formattedValue}>
         {formattedValue}
       </strong>

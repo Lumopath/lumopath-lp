@@ -136,6 +136,7 @@
   &_pic {
     border-radius: 12px;
     background-color: #bfe8df;
+    object-fit: contain;
     overflow: hidden;
     place-content: center;
     aspect-ratio: 788 / 560;

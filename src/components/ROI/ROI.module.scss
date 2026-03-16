@@ -164,6 +164,11 @@
     font-weight: 500;
     font-size: 16px;
     color: var(--gray);
+
+    span {
+      font-size: 14px;
+      font-weight: 400;
+    }
   }
 
   &_value {
