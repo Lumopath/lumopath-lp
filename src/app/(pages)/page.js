@@ -9,7 +9,6 @@ import { performRequest } from "@/lib/datocms";
 import ClarkVsDaniel from "@/components/ClarkVsDaniel";
 import ProductDefinition from "@/components/ProductDefinition";
 import Questions from "@/components/Questions";
-import TheMath from "@/components/TheMath";
 import ROI from "@/components/ROI";
 
 const PAGE_CONTENT_QUERY = `
@@ -102,20 +101,6 @@ const PAGE_CONTENT_QUERY = `
             width
             height
           }
-        }
-      }
-      theMath{
-        label
-        heading
-        drivers{
-          icon{
-            url
-            alt
-            basename
-          }
-          theMath
-          proofPoint
-          headline
         }
       }
       roi{
@@ -274,7 +259,6 @@ export default async function Home() {
         {...data.homepage.howworks}
         integrations={data.allIntegrations}
       />
-      <TheMath {...data.homepage.theMath} />
       <ROI {...data.homepage.roi} />
       <Solutions {...data.homepage.solutions} />
       <Questions {...data.homepage.whyNot} />
