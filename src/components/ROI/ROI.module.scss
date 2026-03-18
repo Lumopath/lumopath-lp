@@ -105,7 +105,7 @@
 
   &_content {
     margin-top: 36px;
-    padding: 0 28px;
+    padding: 0 20px;
     border: 1px solid var(--pink-stroke-50);
     border-radius: 10px;
 
@@ -115,7 +115,7 @@
   }
 
   &_result {
-    padding: 0 28px;
+    padding: 0 20px;
     position: relative;
     margin-top: 36px;
     border: 1px solid var(--pink-stroke-50);
@@ -163,11 +163,12 @@
   &_label {
     font-weight: 500;
     font-size: 16px;
-    color: var(--gray);
+    color: #000;
 
     span {
       font-size: 14px;
       font-weight: 400;
+      color: var(--gray);
     }
   }
 

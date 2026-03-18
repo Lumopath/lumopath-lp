@@ -7,14 +7,7 @@ import clsx from "clsx";
 import Slider from "../Slider";
 import MarkdownText from "../MarkdownText";
 import Button from "../Button";
-import gsap from "gsap";
-
-const currencyFormatter = new Intl.NumberFormat("en-US", {
-  style: "currency",
-  currency: "USD",
-  minimumFractionDigits: 0,
-  maximumFractionDigits: 2,
-});
+import { formatCurrency, currencyFormatter } from "@/utils/numberFormatters";
 
 const ROI = ({ label, blocks, ctaLabel }) => {
   const calculationBlock = blocks[0];
@@ -173,10 +166,10 @@ const RoiBlockItem = ({
       </div>
     );
   if (__typename === "RoiSummaryInputRecord") {
-    // Blurred: show formatted currency ($1,000). Focused: show raw number (1000).
+    // Blurred: show formatted currency ($1,000 or $500M). Focused: show raw number (1000).
     const displayValue = isFocused
       ? String(value ?? "")
-      : currencyFormatter.format(value || 0);
+      : formatCurrency(value || 0);
     return (
       <div
         data-aos="fade-up"
@@ -205,7 +198,7 @@ const RoiBlockItem = ({
     );
   }
 
-  const formattedValue = currencyFormatter.format(value || 0);
+  const formattedValue = formatCurrency(value || 0);
 
   return (
     <div
@@ -223,7 +216,10 @@ const RoiBlockItem = ({
           {label}
         </MarkdownText>
       </h3>
-      <strong className={s.item_value} title={formattedValue}>
+      <strong
+        className={s.item_value}
+        title={currencyFormatter.format(value || 0)}
+      >
         {formattedValue}
       </strong>
     </div>
