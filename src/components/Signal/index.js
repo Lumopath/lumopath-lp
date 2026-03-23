@@ -202,17 +202,19 @@ const Signal = ({
         </div>
 
         <div ref={animRef} className={s.animation}>
-          {BG_MESSAGES.map((msg) => (
-            <SignalMessage
-              key={msg.id}
-              data-signal-bg=""
-              className={clsx(s.card, s.card__bg, s[`card__${msg.id}`])}
-              icon={msg.icon}
-              title={msg.title}
-            >
-              <p className={s.message_text}>{msg.text}</p>
-            </SignalMessage>
-          ))}
+          <div className={s.bgLayer} data-signal-bg-layer="">
+            {BG_MESSAGES.map((msg) => (
+              <SignalMessage
+                key={msg.id}
+                data-signal-bg=""
+                className={clsx(s.card, s.card__bg, s[`card__${msg.id}`])}
+                icon={msg.icon}
+                title={msg.title}
+              >
+                <p className={s.message_text}>{msg.text}</p>
+              </SignalMessage>
+            ))}
+          </div>
 
           <div className={s.animation_overlay} />
 

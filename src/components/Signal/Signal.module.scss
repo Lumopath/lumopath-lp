@@ -340,6 +340,14 @@
 
 // ─── Card positioning within animation area ──────────────────────
 
+.bgLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  will-change: opacity, filter;
+}
+
 .card {
   position: absolute;
   z-index: 2;

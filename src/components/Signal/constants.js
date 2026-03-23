@@ -7,8 +7,8 @@ export const BG_MESSAGES = [
       width: 32,
       height: 32,
     },
-    title: "@here, I just got off a meeting with",
-    text: "need to migrate all of their users to the new instance for this to work for them...",
+    title: "@here, I just got off a meeting",
+    text: "they need to transfer all client data to the new platform before launc...",
   },
   {
     id: "bg2",
@@ -30,7 +30,7 @@ export const BG_MESSAGES = [
       height: 22,
     },
     title: "Onboarding timeline",
-    text: "Hi team, I just spoke with Acme and they’re hoping to complete onboarding before the end of the quarter...",
+    text: "Hi team, I connected with Orion and they’re planning to go live early next month...",
   },
   {
     id: "bg4",
@@ -40,8 +40,8 @@ export const BG_MESSAGES = [
       width: 28,
       height: 22,
     },
-    title: "Acme onboarding timeline",
-    text: "Hi team, I just spoke with Acme and they’re hoping to complete onboarding before the end of the quarter...",
+    title: "Feedback",
+    text: "Hi team, we received feedback from Altura regarding the latest release. They’ve highlighted a few usability issues that need to be reviewed before the ne...",
   },
   {
     id: "bg5",
@@ -51,8 +51,8 @@ export const BG_MESSAGES = [
       width: 32,
       height: 32,
     },
-    title: "User Migration Bug",
-    text: "Melida at Acme Corp said that when she uses the migration page, it breaks...",
+    title: "Data Sync Failure",
+    text: "Mark from BrightLabs reported that data isn’t syncing correctly after migration...",
   },
   {
     id: "bg6",
@@ -63,7 +63,7 @@ export const BG_MESSAGES = [
       height: 32,
     },
     title: "Onboarding Bug",
-    text: "Melida at Acme Corp said that when she uses the migration page, it breaks...",
+    text: "Anna mentioned that during checkout, the page freezes. I tested it as well and the issue is rep...",
   },
 ];
 
