@@ -27,9 +27,9 @@ export function initSignalAnimation(container) {
   tl.to(messageCards, {
     scale: 1,
     autoAlpha: 1,
-    duration: 0.9,
+    duration: 0.7,
     ease: "back.out(1.7)",
-    stagger: 0.15,
+    stagger: 0.08,
   });
 
   tl.to(
@@ -37,7 +37,7 @@ export function initSignalAnimation(container) {
     {
       scale: 1,
       autoAlpha: 1,
-      duration: 0.9,
+      duration: 0.7,
       ease: "back.out(1.7)",
     },
     "-=0.3",
@@ -48,10 +48,10 @@ export function initSignalAnimation(container) {
     {
       filter: "blur(3px)",
       opacity: 0.25,
-      duration: 1.5,
+      duration: 0.7,
       ease: "power2.inOut",
     },
-    "-=1",
+    "-=0.9",
   );
 
   return tl;
