@@ -257,8 +257,8 @@ export default async function Home() {
         problems={data.homepage.problems}
         testimonials={data.homepage.testimonials}
       />
-      <ClarkVsDaniel {...data.homepage.clarkVsDaniel} />
       <Signal {...data.homepage.signal} />
+      <ClarkVsDaniel {...data.homepage.clarkVsDaniel} />
       {/* <Platform {...data.homepage.platform} /> */}
       <HowWorks
         {...data.homepage.howworks}
