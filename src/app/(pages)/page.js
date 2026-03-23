@@ -7,6 +7,7 @@ import Why from "@/components/Why";
 import Solutions from "@/components/Solutions";
 import { performRequest } from "@/lib/datocms";
 import ClarkVsDaniel from "@/components/ClarkVsDaniel";
+import Signal from "@/components/Signal";
 import Questions from "@/components/Questions";
 import ROI from "@/components/ROI";
 
@@ -49,6 +50,14 @@ const PAGE_CONTENT_QUERY = `
           }
           description
         }
+      }
+      signal{
+        heading
+        label
+        subHeading
+        description
+        summary
+        ctaLabel
       }
       clarkVsDaniel{
         label
@@ -249,6 +258,7 @@ export default async function Home() {
         testimonials={data.homepage.testimonials}
       />
       <ClarkVsDaniel {...data.homepage.clarkVsDaniel} />
+      <Signal {...data.homepage.signal} />
       {/* <Platform {...data.homepage.platform} /> */}
       <HowWorks
         {...data.homepage.howworks}
