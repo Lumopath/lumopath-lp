@@ -1,0 +1,550 @@
+.signal {
+  padding-block: 120px;
+  text-align: center;
+
+  @media (max-width: 739.98px) {
+    padding-block: 80px;
+  }
+}
+
+.heading {
+  &_full {
+    @media (max-width: 739.98px) {
+      display: none;
+    }
+  }
+
+  &_short {
+    display: none;
+
+    @media (max-width: 739.98px) {
+      display: inline;
+    }
+  }
+}
+
+.process {
+  margin-top: 52px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  overflow: hidden;
+
+  @media (max-width: 1199.98px) {
+    margin-top: 56px;
+    padding-inline: 42px;
+  }
+
+  @media (max-width: 739.98px) {
+    margin-top: 44px;
+    padding-inline: 0;
+    gap: 50px;
+  }
+}
+
+.moment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  max-width: 540px;
+
+  @media (max-width: 739.98px) {
+    max-width: 100%;
+    gap: 14px;
+  }
+
+  &_title {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.3;
+
+    @media (max-width: 739.98px) {
+      font-size: 22px;
+    }
+  }
+
+  &_descr {
+    font-size: 16px;
+    line-height: 1.4;
+    color: var(--gray);
+    opacity: 0.8;
+
+    strong {
+      color: var(--black);
+      font-weight: 500;
+    }
+  }
+}
+
+// ─── Animation area: scattered message cards ─────────────────────
+
+.animation {
+  position: relative;
+  width: 100%;
+  max-width: 856px;
+  aspect-ratio: 856 / 409;
+
+  @media (max-width: 1199.98px) {
+    max-width: 650px;
+    aspect-ratio: 650 / 409;
+  }
+
+  @media (max-width: 739.98px) {
+    max-width: 100%;
+    aspect-ratio: 320 / 639;
+    max-height: 700px;
+  }
+
+  &_overlay {
+    position: absolute;
+    inset: -10px -4px;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+      270deg,
+      #fff 0%,
+      rgba(255, 255, 255, 0.305) 7%,
+      rgba(255, 255, 255, 0) 75%,
+      #fff 100%
+    );
+  }
+}
+
+// ─── Reusable message card ───────────────────────────────────────
+
+.message {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  background: var(--white);
+  border: 0.78px solid var(--light);
+  border-radius: 12px;
+  padding: 16px 12px;
+  text-align: left;
+
+  &_icon {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+  }
+
+  &_body {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2px;
+  }
+
+  &_title {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.3;
+    color: var(--black);
+  }
+
+  &_subtitle {
+    font-size: 14px;
+    line-height: 1.32;
+    color: var(--gray-dark);
+  }
+
+  &_text {
+    font-size: 14px;
+    line-height: 1.3;
+    color: var(--gray);
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &_textClamp {
+    @media (max-width: 739.98px) {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+  }
+
+  &_slackText {
+    font-size: 15px;
+    line-height: 20px;
+    color: #1d1d1d;
+  }
+
+  &_mention {
+    color: #00579c;
+    font-weight: 500;
+  }
+
+  &_meta {
+    display: flex;
+    gap: 6px;
+    font-size: 14px;
+    color: var(--gray);
+    margin-top: 6px;
+    white-space: nowrap;
+
+    strong {
+      font-weight: 500;
+      color: #474747;
+    }
+  }
+
+  &_metaPriority {
+    @media (max-width: 739.98px) {
+      display: none;
+    }
+  }
+
+  &_header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &_time {
+    font-size: 12px;
+    color: #616061;
+    line-height: 16px;
+  }
+
+  &_thread {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 13px;
+    padding: 4px 6px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: fit-content;
+
+    @media (max-width: 739.98px) {
+      display: none;
+    }
+  }
+
+  &_threadAvatars {
+    display: flex;
+    gap: 4px;
+  }
+
+  &_threadAvatar {
+    border-radius: 4px;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+  }
+
+  &_threadCount {
+    font-size: 12px;
+    color: #1364a3;
+    line-height: 16px;
+  }
+
+  &_threadLink {
+    font-size: 12px;
+    color: #616061;
+    line-height: 16px;
+  }
+
+  &_details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 14px;
+    line-height: 1.3;
+    color: #474747;
+  }
+}
+
+// ─── Center Lumopath summary card ────────────────────────────────
+
+.summaryCard {
+  padding: 5px;
+  background-color: rgba(255, 244, 254, 0.56);
+  border: 1px solid rgba(255, 200, 229, 0.5);
+  border-radius: 20px;
+
+  &_inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--white);
+    border: 0.6px solid var(--pink);
+    border-radius: 15px;
+    padding: 20px 14px;
+    box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.06);
+    text-align: left;
+    height: 100%;
+  }
+
+  &_header {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 0 2px;
+  }
+
+  &_title {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.3;
+    color: var(--black);
+  }
+
+  &_subtitle {
+    font-size: 14px;
+    line-height: 1.32;
+    color: var(--gray-dark);
+  }
+
+  &_cells {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 8px;
+  }
+
+  &_cell {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border: 0.6px solid var(--light);
+    border-radius: 4px;
+    font-size: 14px;
+  }
+
+  &_dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  &_name {
+    font-weight: 500;
+    color: var(--black);
+  }
+
+  &_value {
+    margin-left: auto;
+    color: var(--gray);
+  }
+}
+
+// ─── Card positioning within animation area ──────────────────────
+
+.card {
+  position: absolute;
+  z-index: 2;
+  will-change: transform, opacity, filter;
+
+  &__bg {
+    z-index: 0;
+  }
+
+  &__bg1 {
+    top: 30%;
+    right: 51%;
+    width: 37%;
+
+    @media (max-width: 739.98px) {
+      top: 28%;
+      left: -15%;
+      right: auto;
+      width: 75%;
+    }
+  }
+
+  &__bg2 {
+    top: 57%;
+    left: 17%;
+    width: 48%;
+
+    @media (max-width: 739.98px) {
+      top: 38%;
+      left: auto;
+      right: -20%;
+      width: 70%;
+    }
+  }
+
+  &__bg3 {
+    top: 76%;
+    right: 5%;
+    width: 40%;
+
+    @media (max-width: 739.98px) {
+      top: 55%;
+      left: 30%;
+      right: auto;
+      width: 80%;
+    }
+  }
+
+  &__bg4 {
+    top: 1%;
+    right: 5%;
+    width: 40%;
+
+    @media (max-width: 739.98px) {
+      top: 20%;
+      left: 20%;
+      right: auto;
+      width: 80%;
+    }
+  }
+
+  &__bg5 {
+    top: 46%;
+    right: 2%;
+    width: 37%;
+
+    @media (max-width: 739.98px) {
+      top: 48%;
+      right: -10%;
+      width: 65%;
+    }
+  }
+
+  &__bg6 {
+    top: 50%;
+    left: 5%;
+    width: 37%;
+
+    @media (max-width: 739.98px) {
+      top: 58%;
+      left: -10%;
+      width: 75%;
+    }
+  }
+
+  // ── Foreground cards ───────────────────────────────────────────
+
+  &__jira {
+    top: 2.2%;
+    left: 3.2%;
+    width: 43.2%;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.06);
+
+    @media (max-width: 1199.98px) {
+      left: -4.2%;
+      top: 3.4%;
+      width: 57%;
+    }
+
+    @media (max-width: 739.98px) {
+      left: 9.7%;
+      top: 1.4%;
+      width: 90.3%;
+    }
+  }
+
+  &__slack {
+    top: 5.4%;
+    right: 0;
+    width: 43.1%;
+    box-shadow: 0px 3px 10px rgba(80, 80, 80, 0.06);
+
+    @media (max-width: 1199.98px) {
+      right: -4.8%;
+      top: 10.5%;
+      width: 57%;
+    }
+
+    @media (max-width: 739.98px) {
+      right: 0;
+      left: auto;
+      top: 77%;
+      width: 97.8%;
+    }
+  }
+
+  &__center {
+    top: 25.4%;
+    left: 37.15%;
+    width: 25.7%;
+    z-index: 3;
+
+    @media (max-width: 1199.98px) {
+      left: 33.1%;
+      top: 26%;
+      width: 33.8%;
+    }
+
+    @media (max-width: 739.98px) {
+      left: 17%;
+      top: 34%;
+      width: 68.8%;
+    }
+  }
+
+  &__zoom {
+    top: 63.3%;
+    left: 57.6%;
+    width: 42.4%;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.06);
+
+    @media (max-width: 1199.98px) {
+      left: 56.3%;
+      top: 68.7%;
+      width: 42.6%;
+    }
+
+    @media (max-width: 739.98px) {
+      left: 0.6%;
+      top: 20.3%;
+      width: 86.6%;
+    }
+  }
+
+  &__gmail {
+    top: 74.1%;
+    left: 5%;
+    width: 43.2%;
+    box-shadow: 0px 3px 10px rgba(80, 80, 80, 0.06);
+
+    @media (max-width: 1199.98px) {
+      left: -4.5%;
+      top: 65.5%;
+      width: 57%;
+    }
+
+    @media (max-width: 739.98px) {
+      left: 25.6%;
+      top: 61.3%;
+      width: 74.1%;
+    }
+  }
+}
+
+// ─── Closing CTA block ──────────────────────────────────────────
+
+.closing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding-top: 20px;
+
+  &_text {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.3;
+    text-align: center;
+
+    @media (max-width: 739.98px) {
+      font-size: 18px;
+
+      br {
+        display: none;
+      }
+    }
+  }
+}

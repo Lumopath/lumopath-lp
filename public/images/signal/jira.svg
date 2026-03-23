@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" viewBox="0 0 32 32">
+    <g clip-path="url(#a)">
+        <path fill="#2684ff"
+            d="M30.383-.897H14.978a6.945 6.945 0 0 0 6.948 6.948h2.834v2.743a6.945 6.945 0 0 0 6.949 6.948V.428c0-.731-.594-1.325-1.326-1.325" />
+        <path fill="url(#b)"
+            d="M22.749 6.782H7.343a6.945 6.945 0 0 0 6.949 6.949h2.834v2.743a6.946 6.946 0 0 0 6.949 6.948V8.108c0-.731-.595-1.326-1.326-1.326" />
+        <path fill="url(#c)"
+            d="M15.115 14.463H-.291a6.945 6.945 0 0 0 6.949 6.948h2.834v2.743a6.946 6.946 0 0 0 6.948 6.949V15.788c0-.731-.594-1.325-1.325-1.325" />
+    </g>
+    <defs>
+        <linearGradient id="b" x1="23.758" x2="17.203" y1="6.802" y2="13.562" gradientUnits="userSpaceOnUse">
+            <stop offset=".176" stop-color="#0052cc" />
+            <stop offset="1" stop-color="#2684ff" />
+        </linearGradient>
+        <linearGradient id="c" x1="16.565" x2="8.986" y1="14.522" y2="21.896" gradientUnits="userSpaceOnUse">
+            <stop offset=".176" stop-color="#0052cc" />
+            <stop offset="1" stop-color="#2684ff" />
+        </linearGradient>
+        <clipPath id="a">
+            <path fill="#fff" d="M0 0h32v32H0z" />
+        </clipPath>
+    </defs>
+</svg>
