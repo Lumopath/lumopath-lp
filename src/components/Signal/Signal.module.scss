@@ -7,24 +7,7 @@
   }
 }
 
-.heading {
-  &_full {
-    @media (max-width: 739.98px) {
-      display: none;
-    }
-  }
-
-  &_short {
-    display: none;
-
-    @media (max-width: 739.98px) {
-      display: inline;
-    }
-  }
-}
-
 .process {
-  margin-top: 52px;
   display: flex;
   flex-direction: column;
   align-items: center;
