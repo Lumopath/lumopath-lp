@@ -3,12 +3,12 @@
 import React, { useRef, useEffect } from "react";
 import Image from "next/image";
 import clsx from "clsx";
-import Badge from "../Badge";
 import Button from "../Button";
 import { initSignalAnimation } from "./anim";
 import { BG_MESSAGES, FG_MESSAGES } from "./constants";
 import s from "./Signal.module.scss";
 import MarkdownText from "../MarkdownText";
+import Heading from "../Heading";
 
 // ─── Reusable message card ───────────────────────────────────────
 
@@ -146,7 +146,6 @@ const renderForegroundContent = (type) => {
 const Signal = ({
   heading,
   label,
-  subHeading,
   description,
   summary,
   ctaLabel,
@@ -164,42 +163,13 @@ const Signal = ({
 
   return (
     <section className={clsx("container", s.signal)}>
-      <h2 data-aos="fade-up">
-        <MarkdownText
-          components={{
-            p: ({ children }) => <>{children}</>,
-            em: ({ children }) => (
-              <span className={s.heading_full}>{children}</span>
-            ),
-            strong: ({ children }) => (
-              <span className={s.heading_short}>{children}</span>
-            ),
-          }}
-        >
-          {heading}
-        </MarkdownText>
-      </h2>
-
       <div className={s.process}>
-        <div className={s.moment}>
-          <Badge variant="blue" data-aos="fade-up">
-            {label}
-          </Badge>
-          <h4
-            className={s.moment_title}
-            data-aos="fade-up"
-            data-aos-delay={100}
-          >
-            <MarkdownText components={{ p: ({ children }) => <>{children}</> }}>
-              {subHeading}
-            </MarkdownText>
-          </h4>
-          <p className={s.moment_descr} data-aos="fade-up" data-aos-delay={200}>
-            <MarkdownText components={{ p: ({ children }) => <>{children}</> }}>
-              {description}
-            </MarkdownText>
-          </p>
-        </div>
+        <Heading
+          badge={label}
+          badgeColor="blue"
+          title={heading}
+          descr={description}
+        />
 
         <div ref={animRef} className={s.animation}>
           <div className={s.bgLayer} data-signal-bg-layer="">

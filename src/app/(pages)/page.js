@@ -54,7 +54,6 @@ const PAGE_CONTENT_QUERY = `
       signal{
         heading
         label
-        subHeading
         description
         summary
         ctaLabel

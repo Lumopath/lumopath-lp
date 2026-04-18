@@ -29,11 +29,18 @@ const Heading = ({
           {title}
         </MarkdownText>
       </h2>
-      {descr && (
-        <p data-aos="fade-up" data-aos-delay={200} className="lead">
-          {descr}
-        </p>
-      )}
+      <div data-aos="fade-up" data-aos-delay={200} className="lead">
+        {descr && (
+          <MarkdownText
+            components={{
+              p: ({ children }) => <>{children}</>,
+              ...markdownComponents,
+            }}
+          >
+            {descr}
+          </MarkdownText>
+        )}
+      </div>
     </div>
   );
 };
